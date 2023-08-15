@@ -1,2 +1,3 @@
-# hr-eng-internship-2023-sample
-2023年のインターンシップのサンプルアプリケーション
+# サマーテックサークル
+
+https://internship-d.sandbox.srv.speee.jp/
