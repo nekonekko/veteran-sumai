@@ -17,5 +17,6 @@ class CreateBranches < ActiveRecord::Migration[7.0]
       t.text :introduction, null: false
       t.timestamps
     end
+    add_index :branches, [:ieul_branch_id], unique: true
   end
 end
