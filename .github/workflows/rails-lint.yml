@@ -1,0 +1,27 @@
+'on':
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: rails
+    env:
+      RAILS_ENV: test
+      TZ: 'Asia/Tokyo'
+    timeout-minutes: 10
+    steps:
+    - uses: actions/checkout@v3
+
+    # https://docs.github.com/en/enterprise-cloud@latest/actions/automating-builds-and-tests/building-and-testing-ruby
+    - uses: ruby/setup-ruby@v1
+      with:
+        bundler-cache: true
+        working-directory: rails
+
+    - name: rubocop
+      run: bundle exec rubocop
