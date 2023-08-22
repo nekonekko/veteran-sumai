@@ -31,6 +31,8 @@ jobs:
         bundler-cache: true
         working-directory: rails
 
+    - run: sleep 10
+
     - run: bundle exec rails db:create db:migrate
     - name: rspec
       run: bundle exec rspec
