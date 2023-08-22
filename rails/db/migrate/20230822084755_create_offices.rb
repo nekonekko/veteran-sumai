@@ -1,9 +1,9 @@
-class CreateBranches < ActiveRecord::Migration[7.0]
+class CreateOffices < ActiveRecord::Migration[7.0]
   def change
-    create_table :branches do |t|
+    create_table :offices do |t|
       t.string :name, null: false
       t.references :companies, null: false, foreign_key: true
-      t.integer :ieul_branch_id, null: false
+      t.integer :ieul_office_id, null: false
       t.string :logo_url, null: false
       t.string :postal_code
       t.references :prefectures, null: false, foreign_key: true
@@ -17,6 +17,6 @@ class CreateBranches < ActiveRecord::Migration[7.0]
       t.text :introduction, null: false
       t.timestamps
     end
-    add_index :branches, [:ieul_branch_id], unique: true
+    add_index :offices, [:ieul_office_id], unique: true
   end
 end
