@@ -7,6 +7,6 @@ class CreateAssessmentAreas < ActiveRecord::Migration[7.0]
       t.references :city, null: false, foreign_key: true
       t.timestamps
     end
-    add_index :assessment_areas, [:office_id, :city_id], unique: true
+    add_index :assessment_areas, %i[office_id city_id], unique: true
   end
 end
