@@ -1,8 +1,6 @@
-# frozen_string_literal: true
-
-class CreateSatei < ActiveRecord::Migration[7.0]
+class CreateAssessmentRequests < ActiveRecord::Migration[7.0]
   def change
-    create_table :sateis do |t|
+    create_table :assessment_requests do |t|
       t.references :office, null: false, foreign_key: true
       t.references :city, null: false, foreign_key: true
       t.string :property_address, null: false
