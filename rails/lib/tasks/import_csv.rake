@@ -37,4 +37,23 @@ namespace :import_csv do
       end
     end
   end
+
+  desc ''
+  task company: :environment do
+    Zip::File.open('tmp/company_and_office.csv.zip') do |zip_file|
+      entry = zip_file.glob('company_and_office.csv').first
+      data = entry.get_input_stream.read
+
+      ActiveRecord::Base.transaction do
+        CSV.parse(data.force_encoding('UTF-8'), headers: true).each do |row|
+          puts row['ieul_企業id'].to_i.class
+          company = Company.find_or_initialize_by(id: row['ieul_企業id'].to_i)
+          company.update!(
+            name: row['企業名'],
+            ieul_company_id: row['ieul_企業id'].to_i
+          )
+        end
+      end
+    end
+  end
 end
