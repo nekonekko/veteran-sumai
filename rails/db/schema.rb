@@ -11,6 +11,15 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2023_08_23_044232) do
+  create_table "assess_areas", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+    t.bigint "office_id", null: false
+    t.bigint "city_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["city_id"], name: "index_assess_areas_on_city_id"
+    t.index ["office_id"], name: "index_assess_areas_on_office_id"
+  end
+
   create_table "assessment_areas", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.bigint "office_id", null: false
     t.bigint "city_id", null: false
@@ -19,29 +28,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_23_044232) do
     t.index ["city_id"], name: "index_assessment_areas_on_city_id"
     t.index ["office_id", "city_id"], name: "index_assessment_areas_on_office_id_and_city_id", unique: true
     t.index ["office_id"], name: "index_assessment_areas_on_office_id"
-  end
-
-  create_table "assessment_requests", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
-    t.bigint "office_id", null: false
-    t.bigint "city_id", null: false
-    t.string "property_address", null: false
-    t.integer "property_type", null: false
-    t.float "property_exclusive_area", null: false
-    t.float "property_land_area", null: false
-    t.float "property_building_area", null: false
-    t.integer "property_building_area_unit", null: false
-    t.float "property_floor_area", null: false
-    t.string "url_param", null: false
-    t.integer "property_room_plan", null: false
-    t.integer "property_constructed_year", null: false
-    t.string "user_email", null: false
-    t.string "user_name", null: false
-    t.string "user_name_kana", null: false
-    t.string "user_tel", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["city_id"], name: "index_assessment_requests_on_city_id"
-    t.index ["office_id"], name: "index_assessment_requests_on_office_id"
   end
 
   create_table "assessment_requests", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
@@ -151,6 +137,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_23_044232) do
     t.index ["office_id"], name: "index_reviews_on_office_id"
   end
 
+  add_foreign_key "assess_areas", "cities"
+  add_foreign_key "assess_areas", "offices"
   add_foreign_key "assessment_areas", "cities"
   add_foreign_key "assessment_areas", "offices"
   add_foreign_key "assessment_requests", "cities"
