@@ -3,7 +3,7 @@
     --star-background: #fc0;
 }
 
-.Stars {
+.stars {
     --percent: calc(var(--rating) / 5 * 100%);
 
     display: inline-block;
