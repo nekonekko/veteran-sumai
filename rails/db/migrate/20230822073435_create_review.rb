@@ -1,7 +1,7 @@
 class CreateReview < ActiveRecord::Migration[7.0]
   def change
     create_table :reviews do |t|
-      t.references :offices, null: false, foreign_key: true
+      t.references :office, null: false, foreign_key: true
       t.integer :ieul_office_id, null: false, uniqueness: true
       t.string :username, null: false
       t.integer :gender, null: false
