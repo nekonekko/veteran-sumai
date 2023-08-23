@@ -10,17 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema[7.0].define(version: 2023_08_23_042502) do
-  create_table "assess_areas", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+ActiveRecord::Schema[7.0].define(version: 2023_08_23_044232) do
+  create_table "assessment_areas", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.bigint "office_id", null: false
     t.bigint "city_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["city_id"], name: "index_assess_areas_on_city_id"
-    t.index ["office_id"], name: "index_assess_areas_on_office_id"
-=======
-ActiveRecord::Schema[7.0].define(version: 2023_08_23_023037) do
+    t.index ["city_id"], name: "index_assessment_areas_on_city_id"
+    t.index ["office_id", "city_id"], name: "index_assessment_areas_on_office_id_and_city_id", unique: true
+    t.index ["office_id"], name: "index_assessment_areas_on_office_id"
+  end
+
   create_table "assessment_requests", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.bigint "office_id", null: false
     t.bigint "city_id", null: false
@@ -42,7 +42,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_23_023037) do
     t.datetime "updated_at", null: false
     t.index ["city_id"], name: "index_assessment_requests_on_city_id"
     t.index ["office_id"], name: "index_assessment_requests_on_office_id"
->>>>>>> 8152dfc (migrationを実行した。)
   end
 
   create_table "cities", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
@@ -129,8 +128,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_23_023037) do
     t.index ["office_id"], name: "index_reviews_on_office_id"
   end
 
-  add_foreign_key "assess_areas", "cities"
-  add_foreign_key "assess_areas", "offices"
+  add_foreign_key "assessment_areas", "cities"
+  add_foreign_key "assessment_areas", "offices"
+  add_foreign_key "assessment_requests", "cities"
+  add_foreign_key "assessment_requests", "offices"
   add_foreign_key "cities", "prefectures"
   add_foreign_key "offices", "cities"
   add_foreign_key "offices", "companies"
