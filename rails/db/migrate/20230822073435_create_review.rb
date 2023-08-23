@@ -8,7 +8,7 @@ class CreateReview < ActiveRecord::Migration[7.0]
       t.string :username, null: false
       t.integer :gender, null: false
       t.integer :age, null: false
-      t.references :city, index: { name: "property_city_id" }, null: false, foreign_key: true
+      t.references :city, index: { name: 'property_city_id' }, null: false, foreign_key: true
       t.string :property_address, null: false
       t.integer :property_type, null: false
       t.integer :num_of_sales, null: false
