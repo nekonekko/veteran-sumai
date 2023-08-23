@@ -62,7 +62,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_23_044232) do
   end
 
   create_table "offices", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
-    t.string "name", null: false
+    t.string "name"
     t.bigint "company_id", null: false
     t.integer "ieul_office_id", null: false
     t.string "logo_url", null: false
