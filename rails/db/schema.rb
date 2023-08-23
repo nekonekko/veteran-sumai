@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_22_084755) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_23_021340) do
   create_table "branches", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "name", null: false
     t.bigint "companies_id", null: false
@@ -68,7 +68,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_22_084755) do
     t.datetime "updated_at", null: false
     t.index ["cities_id"], name: "index_offices_on_cities_id"
     t.index ["company_id"], name: "index_offices_on_company_id"
-    t.index ["ieul_office_id"], name: "index_offices_on_ieul_office_id", unique: true
     t.index ["prefectures_id"], name: "index_offices_on_prefectures_id"
   end
 
@@ -96,7 +95,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_22_084755) do
     t.integer "satisfaction_with_sale_speed", null: false
     t.integer "assessed_price", null: false
     t.integer "sale_price", null: false
-    t.boolean "is_price_reduced", null: false
+    t.boolean "is_price_reduced", default: false, null: false
     t.integer "price_reduction_after_how_many_month"
     t.integer "reduced_price"
     t.integer "contract_price", null: false

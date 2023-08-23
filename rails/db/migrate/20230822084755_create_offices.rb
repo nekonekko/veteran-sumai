@@ -8,8 +8,8 @@ class CreateOffices < ActiveRecord::Migration[7.0]
       t.integer :ieul_office_id, null: false
       t.string :logo_url, null: false
       t.string :postal_code
-      t.references :prefectures, null: false, foreign_key: true
-      t.references :cities, null: false, foreign_key: true
+      t.references :prefecture, null: false, foreign_key: true
+      t.references :city, null: false, foreign_key: true
       t.string :address, null: false
       t.string :phone_number
       t.string :fax_number
