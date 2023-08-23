@@ -78,6 +78,44 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_22_084755) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "reviews", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
+    t.bigint "office_id", null: false
+    t.integer "ieul_office_id", null: false
+    t.string "username", null: false
+    t.integer "gender", null: false
+    t.integer "age", null: false
+    t.bigint "city_id", null: false
+    t.string "property_address", null: false
+    t.integer "property_type", null: false
+    t.integer "num_of_sales", null: false
+    t.date "considered_sale_on", null: false
+    t.date "requested_assessment_on", null: false
+    t.date "started_selling_on", null: false
+    t.date "sold_on", null: false
+    t.date "transfered_on", null: false
+    t.integer "satisfaction_with_sale_speed", null: false
+    t.integer "assessed_price", null: false
+    t.integer "sale_price", null: false
+    t.boolean "is_price_reduced", null: false
+    t.integer "price_reduction_after_how_many_month"
+    t.integer "reduced_price"
+    t.integer "contract_price", null: false
+    t.integer "satisfaction_with_sale_price", null: false
+    t.integer "form_of_mediation_contract", null: false
+    t.text "headline", null: false
+    t.integer "reason_for_sale", null: false
+    t.text "concerns_at_time_of_sale", null: false
+    t.text "reason_for_choosing_this_agent", null: false
+    t.integer "satisfaction_with_company_response", null: false
+    t.text "reason_for_satisfaction_with_company_response", null: false
+    t.text "advice_for_future_sellers", null: false
+    t.text "improvement_desired_from_company"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["city_id"], name: "property_city_id"
+    t.index ["office_id"], name: "index_reviews_on_office_id"
+  end
+
   add_foreign_key "branches", "cities", column: "cities_id"
   add_foreign_key "branches", "companies", column: "companies_id"
   add_foreign_key "branches", "prefectures", column: "prefectures_id"
@@ -85,4 +123,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_22_084755) do
   add_foreign_key "offices", "cities", column: "cities_id"
   add_foreign_key "offices", "companies"
   add_foreign_key "offices", "prefectures", column: "prefectures_id"
+  add_foreign_key "reviews", "cities"
+  add_foreign_key "reviews", "offices"
 end
