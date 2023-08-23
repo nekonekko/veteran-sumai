@@ -21,4 +21,7 @@ Things you may want to cover:
 
 * Deployment instructions
 
+* ローカルサーバーの起動方法
+`$ rails s`ではなく`$ ./bin/dev`で起動すると、Tailwindのビルドやリアルタイムでの反映をしてくれます。
+
 * ...
