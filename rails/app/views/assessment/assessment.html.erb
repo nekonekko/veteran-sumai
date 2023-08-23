@@ -4,14 +4,14 @@
         <title>査定依頼</title>
     </head>
     <body>
-        <section>
+        <section class="container mx-auto max-w-md mb-3.5">
             <h1 class="text-xl">査定依頼フォーム</h1>
-        <p class="text-base">フォームは全て必須入力です。</p>
+            <p class="text-base">フォームは全て必須入力です。</p>
         </section>
 
         <section class="container mx-auto max-w-md">
             <%= form_with model: @assessment_request do |form|%>
-            <h2>＜あなたの情報＞</h2>
+            <h2 class="bg-blue-800 text-white max-w-lg">あなたの情報</h2>
             <%= form.label :user_name, "お名前"%>
             <%= form.text_field :user_name %><br>
 
@@ -22,10 +22,10 @@
             <%= form.text_field :user_tel %><br>
 
             <%= form.label :user_email, "メールアドレス"%>
-            <%= form.text_field :user_email %><br>
+            <%= form.text_field :user_email, class: 'mb-2.5' %><br>
 
 
-            <h2>＜物件の情報＞</h2>
+            <h2 class="bg-blue-800 text-white max-w-lg">物件の情報</h2>
             <%= form_with model: @assessment_area do |form|%>
             <%= form.label :city, "市区町村"%>
 
