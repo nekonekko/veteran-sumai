@@ -51,7 +51,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_22_084755) do
 
   create_table "offices", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.string "name", null: false
-    t.bigint "companies_id", null: false
+    t.bigint "company_id", null: false
     t.integer "ieul_office_id", null: false
     t.string "logo_url", null: false
     t.string "postal_code"
@@ -67,7 +67,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_22_084755) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["cities_id"], name: "index_offices_on_cities_id"
-    t.index ["companies_id"], name: "index_offices_on_companies_id"
+    t.index ["company_id"], name: "index_offices_on_company_id"
     t.index ["ieul_office_id"], name: "index_offices_on_ieul_office_id", unique: true
     t.index ["prefectures_id"], name: "index_offices_on_prefectures_id"
   end
@@ -83,6 +83,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_22_084755) do
   add_foreign_key "branches", "prefectures", column: "prefectures_id"
   add_foreign_key "cities", "prefectures"
   add_foreign_key "offices", "cities", column: "cities_id"
-  add_foreign_key "offices", "companies", column: "companies_id"
+  add_foreign_key "offices", "companies"
   add_foreign_key "offices", "prefectures", column: "prefectures_id"
 end
