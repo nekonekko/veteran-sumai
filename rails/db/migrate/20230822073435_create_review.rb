@@ -20,7 +20,7 @@ class CreateReview < ActiveRecord::Migration[7.0]
       t.integer :satisfaction_with_sale_speed, null: false
       t.integer :assessed_price, null: false
       t.integer :sale_price, null: false
-      t.boolean :is_price_reduced, null: false
+      t.boolean :is_price_reduced, null: false, default: false
       t.integer :price_reduction_after_how_many_month, null: true
       t.integer :reduced_price, null: true
       t.integer :contract_price, null: false
