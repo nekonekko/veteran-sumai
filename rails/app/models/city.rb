@@ -1,6 +1,8 @@
-class City < ApplicationRecord
-    belongs_to :prefecture
+# frozen_string_literal: true
 
-    validates :name ,presence: true
-    validates :yomi ,presence: true
+class City < ApplicationRecord
+  belongs_to :prefecture
+
+  validates :name, presence: true
+  validates :yomi, presence: true
 end
