@@ -4,10 +4,13 @@
         <title>査定依頼</title>
     </head>
     <body>
-        <h1 class="text-xl">査定依頼フォーム</h1>
+        <section>
+            <h1 class="text-xl">査定依頼フォーム</h1>
         <p class="text-base">フォームは全て必須入力です。</p>
+        </section>
 
-        <%= form_with model: @assessment_request do |form|%>
+        <section class="container mx-auto max-w-md">
+            <%= form_with model: @assessment_request do |form|%>
             <h2>＜あなたの情報＞</h2>
             <%= form.label :user_name, "お名前"%>
             <%= form.text_field :user_name %><br>
@@ -23,7 +26,17 @@
 
 
             <h2>＜物件の情報＞</h2>
-            <%= form.label :property_address, "住所"%>
+            <%= form_with model: @assessment_area do |form|%>
+            <%= form.label :city, "市区町村"%>
+
+<%= form.select :city, options_for_select({
+  '横浜市' => 0,
+  '相模原市' => 1
+}), prompt: '市区町村を選択してください。' %>
+            <% end %>
+            
+
+            <%= form.label :property_address, "市区町村以下"%>
             <%= form.text_field :property_address %><br>
 
 
@@ -82,6 +95,9 @@
             <%= form.submit '査定依頼をする'%>
         
         <% end %>
+        </section>
+
+        
 
     </body>
 </html>
