@@ -3,7 +3,6 @@
 class CreateSatei < ActiveRecord::Migration[7.0]
   def change
     create_table :sateis do |t|
-      t.integer :ieul_branch_id, null: false
       t.references :offices, null: false, foreign_key: true
       t.references :city, null: false, foreign_key: true
       t.string :property_address, null: false
