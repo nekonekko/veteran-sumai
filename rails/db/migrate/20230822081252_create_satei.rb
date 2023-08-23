@@ -19,7 +19,7 @@ class CreateSatei < ActiveRecord::Migration[7.0]
       t.string :user_email, null: false
       t.string :user_name, null: false
       t.string :user_name_kana, null: false
-      t.user_tel :user_tel, null: false
+      t.string :user_tel, null: false
       t.timestamps
     end
   end
