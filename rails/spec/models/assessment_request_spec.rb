@@ -91,11 +91,11 @@ RSpec.describe AssessmentRequest, type: :model do
             expect(ass).to_not be_valid
         end
         it '電話番号が正しい形式の場合、有効であること' do
-            ass = build(:assessment_request, user_tel: '080-1234-5678')
+            ass = build(:assessment_request, user_tel: '08012345678')
             expect(ass).to be_valid
         end
         it '電話番号が0から始まらない場合、無効であること' do
-            ass = build(:assessment_request, user_tel: '180-1234-5678')
+            ass = build(:assessment_request, user_tel: '18012345678')
             expect(ass).to_not be_valid
         end
     end

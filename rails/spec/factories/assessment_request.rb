@@ -15,7 +15,7 @@ FactoryBot.define do
         user_email {'test@example.com'}
         user_name {'屁野 茂辺地'}
         user_name_kana {'への もへじ'}
-        user_tel {'080-1234-5678'}
+        user_tel {'08012345678'}
     end
 end
 
