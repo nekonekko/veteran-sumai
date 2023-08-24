@@ -1,35 +1,44 @@
 <% #　TODO: #57 直接書き込まれている文字列と画像パスを変数に置き換え %>
 <article>
+    <% # TODO: company.name + office.name で置き換え %>
     <h2 class="text-white bg-blue-700 px-3">サマーテックサークル 六本木支店について</h2>
     <section class="flex flex-row flex-wrap mt-5">
+        <% # TODO: office.logo_url で置き換え %>
         <%= image_tag "https://4.bp.blogspot.com/-LnFjU6mRA2o/UYns8n1uhdI/AAAAAAAARb0/nHhq9qsfW8Q/s800/taiyou_sunglass.png", class: "h-52 basis-full lg:basis-1/4 object-contain mb-3 lg:mb-0" %>
         <table class="text-left">
         <tr>
             <th scope="row" class="px-2 py-0.5 whitespace-nowrap">店舗名</th>
+            <% # TODO: company.name + office.name で置き換え %>
             <td class="px-2 py-0.5">サマーテックサークル 六本木支店</td>
         </tr>
         <tr>
             <th scope="row" class="px-2 py-0.5 whitespace-nowrap">郵便番号</th>
+            <% # TODO: office.postal_code で置き換え %>
             <td class="px-2 py-0.5">106-0032</td>
         </tr>
         <tr>
             <th scope="row" class="px-2 py-0.5 whitespace-nowrap">住所</th>
+            <% # TODO: office.address で置き換え %>
             <td class="px-2 py-0.5">東京都港区六本木3-2-1 六本木グランドタワー35階の一角</td>
         </tr>
         <tr>
             <th scope="row" class="px-2 py-0.5 whitespace-nowrap">電話番号</th>
+            <% # TODO: office.phone_number で置き換え %>
             <td class="px-2 py-0.5">777-777-7777</td>
         </tr>
         <tr>
             <th scope="row" class="px-2 py-0.5 whitespace-nowrap">FAX</th>
+            <% # TODO: office.fax_number で置き換え %>
             <td class="px-2 py-0.5">777-777-7777</td>
         </tr>
         <tr>
             <th scope="row" class="px-2 py-0.5 whitespace-nowrap">営業時間</th>
+            <% # TODO: office.business_hours で置き換え %>
             <td class="px-2 py-0.5">10:00~15:00</td>
         </tr>
         <tr>
             <th scope="row" class="px-2 py-0.5 whitespace-nowrap">定休日</th>
+            <% # TODO: office.holiday で置き換え %>
             <td class="px-2 py-0.5">平日と休日と祝日</td>
         </tr>
         </table>
