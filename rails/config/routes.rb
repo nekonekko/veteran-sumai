@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  mount KomachiHeartbeat::Engine => '/ops'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  # get 'offices/:id', to: 'offices#show' <- controller作成後はこっちに
+  get 'offices', to: 'offices#show'
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  mount KomachiHeartbeat::Engine => '/ops'
 end
