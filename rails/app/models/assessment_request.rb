@@ -1,0 +1,2 @@
+class AssessmentRequest < ActiveRecord
+end
