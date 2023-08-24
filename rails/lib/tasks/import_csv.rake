@@ -70,15 +70,15 @@ namespace :import_csv do
             company_id: row['ieul_企業id'].to_i,
             ieul_office_id: row['ieul_店舗id'].to_i,
             logo_url: row['ロゴURL'],
-            postal_code: row['郵便番号'], 
+            postal_code: row['郵便番号'],
             prefecture_id: Prefecture.find_by(name: row['都道府県']).id,
-            city_id: City.find_by(name: row['市区町村']).id, 
+            city_id: City.find_by(name: row['市区町村']).id,
             address: row['以降住所'],
-            phone_number: row['電話番号'],  
-            fax_number: row['FAX番号'],    
+            phone_number: row['電話番号'],
+            fax_number: row['FAX番号'],
             business_hours: row['営業時間'],
-            holiday: row['定休日'],       
-            catch_copy: row['キャッチコピー'],    
+            holiday: row['定休日'],
+            catch_copy: row['キャッチコピー'],
             introduction: row['紹介文']
           )
         end
