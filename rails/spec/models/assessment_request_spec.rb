@@ -99,4 +99,36 @@ RSpec.describe AssessmentRequest, type: :model do
             expect(ass).to_not be_valid
         end
     end
+    describe '文字長さのバリデーションテスト' do
+        it 'メールアドレスが範囲内の長さ（100文字以内）の場合、有効であること' do
+            ass = build(:assessment_request, user_email: 'test@example.com')
+            expect(ass).to be_valid
+        end
+        it 'メールアドレスが範囲外の長さ（101文字以上）の場合、無効であること' do
+            ass = build(:assessment_request, user_email: 'abcdefghijklmnopqrstuvwxyz1234567890abcdefghijklmnopqrstuvwxyz1234567890abcdefghijklmnopqrstuvwxyz@example.com
+                ')
+            expect(ass).to_not be_valid
+        end
+        it 'ユーザーの電話番号が10文字の場合、有効であること' do
+            ass = build(:assessment_request, user_tel: '0801234567')
+            expect(ass).to be_valid
+          end
+      
+          it 'ユーザーの電話番号が11文字の場合、有効であること' do
+            ass = build(:assessment_request, user_tel: '09012345678')
+            expect(ass).to be_valid
+          end
+      
+          it 'ユーザーの電話番号が9文字の場合、無効であること' do
+            ass = build(:assessment_request, user_tel: '070123456')
+            expect(ass).to_not be_valid
+          end
+      
+          it 'ユーザーの電話番号が12文字の場合、無効であること' do
+            ass = build(:assessment_request, user_tel: '070123456789')
+            expect(ass).to_not be_valid
+          end
+      
+    end
+
 end
