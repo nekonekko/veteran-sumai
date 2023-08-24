@@ -3,7 +3,7 @@
 class CreateOffices < ActiveRecord::Migration[7.0]
   def change
     create_table :offices do |t|
-      t.string :name, null: false
+      t.string :name
       t.references :company, null: false, foreign_key: true
       t.integer :ieul_office_id, null: false
       t.string :logo_url, null: false

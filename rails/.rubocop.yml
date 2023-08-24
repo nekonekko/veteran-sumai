@@ -13,8 +13,13 @@ AllCops:
     - tmp/**/*
     - public/**/*
 
+
 Rails:
   Enabled: true
+
+Style/HashSyntax:
+  Exclude:
+      - spec/models/*
 
 Style/Documentation:
   Enabled: false
