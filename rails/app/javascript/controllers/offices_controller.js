@@ -5,17 +5,26 @@ Chart.register(...registerables)
 export default class extends Controller {
     static targets = ['canvas']
 
+    static values = {
+        response: Number,
+        speed: Number,
+        price: Number
+    }
+
     connect() {
         const element = this.canvasTarget
+        const speed = this.speedValue
+        const response = this.responseValue
+        const price = this.priceValue
         const data = {
             labels: [
+                '売却スピード',
                 '対応満足',
                 '売却価格',
-                '売却スピード'
             ],
             datasets: [{
                 label: '平均満足度',
-                data: [4, 4.5, 5],
+                data: [speed, response, price],
                 fill: true,
                 backgroundColor: 'rgba(245, 158, 11, 0.3)',
                 borderColor: 'rgb(245, 158, 11)',
