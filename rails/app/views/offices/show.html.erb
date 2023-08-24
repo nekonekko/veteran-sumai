@@ -6,8 +6,11 @@
   <% # TODO: company.name + office.name で置き換え %>
   <h1 class="text-4xl text-center">サマーテックサークル 六本木支店</h1>
   <% # ↓のdivタグ以下のタグ構成について悩んでいます。とりあえずdivでchartとキャッチコピー&紹介文を囲みましたが、他にいい方法があれば教えて欲しいです %>
-  <div class="my-10">
+  <div class="my-10 flex gap-20">
     <% # ここに口コミのchartが入ります %>
+    <div data-controller="offices" class="w-2/5">
+      <canvas data-offices-target="canvas"></canvas>
+    </div>
     <section>
       <% # TODO: office.catch_copyで置き換え %>
       <h2 class="text-xl mb-1.5">ベテランすまいの開発はサマーテックサークル 六本木支店にお任せください</h2>
