@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-namespace :import_csv do
+namespace :import_csv do # rubocop:disable Metrics/BlockLength
   require 'zip'
   require 'csv'
 
