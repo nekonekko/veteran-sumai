@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
-    factory :city do
-        association :prefecture
-        name {"XX"}
-        yomi {"YY"}
-    end
+  factory :city do
+    prefecture
+    name { 'XX' }
+    yomi { 'YY' }
   end
+end
