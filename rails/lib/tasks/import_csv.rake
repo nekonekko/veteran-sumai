@@ -12,9 +12,9 @@ namespace :import_csv do # rubocop:disable Metrics/BlockLength
     Rake::Task['import_csv:office'].invoke
   end
 
-  desc 'tmp/prefecture.csv.zipを読み込みprefecturesテーブルに挿入する'
+  desc 'lib/assets/prefecture.csv.zipを読み込みprefecturesテーブルに挿入する'
   task prefecture: :environment do
-    Zip::File.open('tmp/prefecture.csv.zip') do |zip_file|
+    Zip::File.open('lib/assets/prefecture.csv.zip') do |zip_file|
       entry = zip_file.glob('prefecture.csv').first
       data = entry.get_input_stream.read
 
@@ -27,9 +27,9 @@ namespace :import_csv do # rubocop:disable Metrics/BlockLength
     end
   end
 
-  desc 'tmp/city.csv.zipを読み込みcitiesテーブルに挿入する'
+  desc 'lib/assets/city.csv.zipを読み込みcitiesテーブルに挿入する'
   task city: :environment do
-    Zip::File.open('tmp/city.csv.zip') do |zip_file|
+    Zip::File.open('lib/assets/city.csv.zip') do |zip_file|
       entry = zip_file.glob('city.csv').first
       data = entry.get_input_stream.read
 
@@ -46,9 +46,9 @@ namespace :import_csv do # rubocop:disable Metrics/BlockLength
     end
   end
 
-  desc 'tmp/company_and_office.csv.zipを読み込みcompaniesテーブルに挿入する'
+  desc 'lib/assets/company_and_office.csv.zipを読み込みcompaniesテーブルに挿入する'
   task company: :environment do
-    Zip::File.open('tmp/company_and_office.csv.zip') do |zip_file|
+    Zip::File.open('lib/assets/company_and_office.csv.zip') do |zip_file|
       entry = zip_file.glob('company_and_office.csv').first
       data = entry.get_input_stream.read
 
@@ -64,9 +64,9 @@ namespace :import_csv do # rubocop:disable Metrics/BlockLength
     end
   end
 
-  desc 'tmp/company_and_office.csv.zipを読み込みofficesテーブルに挿入する'
+  desc 'lib/assets/company_and_office.csv.zipを読み込みofficesテーブルに挿入する'
   task office: :environment do
-    Zip::File.open('tmp/company_and_office.csv.zip') do |zip_file|
+    Zip::File.open('lib/assets/company_and_office.csv.zip') do |zip_file|
       entry = zip_file.glob('company_and_office.csv').first
       data = entry.get_input_stream.read
 
