@@ -48,6 +48,8 @@ gem 'bootsnap', require: false
 
 gem 'rubyzip'
 
+gem 'factory_bot_rails'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
