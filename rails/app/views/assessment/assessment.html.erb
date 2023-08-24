@@ -14,11 +14,11 @@
             <h2 class="bg-blue-800 text-white max-w-lg mb-3.5">あなたの情報</h2>
             <div class='flex flex-nowrap '>
             <!-- ラベルを乗せるdiv -->
-            <div class='w-2/5'>
-            <%= form.label :custom_name_sei, "お名前"%><br><br>
-            <%= form.label :custom_kana_sei, "フリガナ"%><br><br>
-            <%= form.label :user_tel, "電話番号"%><br><br>
-            <%= form.label :user_email, "メールアドレス"%>
+            <div class='w-2/5 [&>label]:py-3.5'>
+            <%= form.label :custom_name_sei, "お名前"%><br>
+            <%= form.label :custom_kana_sei, "フリガナ"%><br>
+            <%= form.label :user_tel, "電話番号"%><br>
+            <%= form.label :user_email, "メールアドレス"%><br>
 
             </div>
             <!-- 入力欄を乗せるdiv -->
@@ -40,7 +40,7 @@
             <div class='flex flex-nowrap '>
             <!-- ラベルを乗せるdiv -->
             <div class='w-2/5'>
-                <%= form.label :city, "市区町村"%>
+                <%= form.label :city, "市区町村"%><br>
             </div>
             <!-- 入力欄を乗せるdiv -->
             <div class='w-3/5'>
@@ -55,13 +55,15 @@
             <div class='flex flex-nowrap '>
             <!-- ラベルを乗せるdiv -->
             <div class='w-2/5'>
-                <%= form.label :property_address, "市区町村以下"%>
-                <%= form.label :property_exclusive_area, "専有面積"%>
-                <%= form.label :property_land_area, "土地面積"%>
-                <%= form.label :property_building_area, "建物面積"%>
-                 <%= form.label :property_floor_area, "延床面積"%>
-                  <%= form.label :property_room_plan, "間取り"%>
-                  <%= form.label :property_constructed_year, "建築年"%>
+                <%= form.label :property_address, "市区町村以下"%><br>
+                <p>物件種別</p>
+                <%= form.label :property_exclusive_area, "専有面積"%><br>
+                <%= form.label :property_land_area, "土地面積"%><br>
+                <%= form.label :property_building_area, "建物面積"%><br>
+                <p>建物面積単位</p>
+                 <%= form.label :property_floor_area, "延床面積"%><br>
+                  <%= form.label :property_room_plan, "間取り"%><br>
+                  <%= form.label :property_constructed_year, "建築年"%><br>
             </div>
             <!-- 入力欄を乗せるdiv -->
             <div class='w-3/5'>
