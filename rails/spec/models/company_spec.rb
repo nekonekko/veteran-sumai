@@ -21,18 +21,18 @@ RSpec.describe Company do
     end
 
     context 'ieul_company_idがnilの場合' do
-        let(:name) { 'Speee不動産' }
-        let(:ieul_company_id) { nil }
-  
-        it { expect(company).not_to be_valid }
-      end
+      let(:name) { 'Speee不動産' }
+      let(:ieul_company_id) { nil }
 
-      context 'ieul_company_idが重複している場合' do
-        it {
-            company = create(:company)
-            uniqueness_company = build(:company, name: 'PSS不動産', ieul_company_id: company.ieul_company_id)
-            expect(uniqueness_company).not_to be_valid
-        }
-      end
+      it { expect(company).not_to be_valid }
+    end
+
+    context 'ieul_company_idが重複している場合' do
+      it {
+        company = create(:company)
+        uniqueness_company = build(:company, name: 'PSS不動産', ieul_company_id: company.ieul_company_id)
+        expect(uniqueness_company).not_to be_valid
+      }
+    end
   end
 end
