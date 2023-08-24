@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe Prefecture do
   describe '#valid?' do
-    let(:prefecture) { build(:prefecture, name:) }
+    let(:prefecture) { build(:prefecture, name: name) }
 
     context 'nameが存在する場合' do
       let(:name) { '北海道' }
@@ -27,10 +27,10 @@ RSpec.describe Prefecture do
       }
     end
 
-    context 'Cityが削除されると、関連するCity削除されること' do
+    context 'Cityが削除されると、関連するCityが削除されること' do
       it {
         prefecture = create(:prefecture)
-        create(:city, prefecture:)
+        create(:city, prefecture: prefecture)
         expect { prefecture.destroy }.to change(City, :count).by(-1)
       }
     end
