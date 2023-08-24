@@ -1,0 +1,2 @@
+class AssessmentArea < ActiveRecord
+end
