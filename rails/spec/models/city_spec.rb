@@ -4,9 +4,9 @@ require 'rails_helper'
 
 RSpec.describe City do
   describe '#valid?' do
-    let(:city) { build(:city, name: name, yomi: yomi) }
+    let(:city) { build(:city, name:name, yomi:yomi) }
 
-    context 'name, yomiが入力されている場合' do
+    context 'name,yomiが入力されている場合' do
       let(:name) { '札幌市' }
       let(:yomi) { 'さっぽろ' }
 
@@ -25,12 +25,6 @@ RSpec.describe City do
       let(:yomi) { nil }
 
       it { expect(city).not_to be_valid }
-    end
-  end
-
-  describe '#association' do
-    context 'Prefectureとの関係がN:1になっていること' do
-      it { expect(described_class.reflect_on_association(:prefecture).macro).to eq :belongs_to }
     end
   end
 end

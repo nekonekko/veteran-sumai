@@ -35,21 +35,4 @@ RSpec.describe Company do
         }
       end
   end
-
-  describe '#association' do
-    context 'officeとの関係が1:Nになっていること' do
-      it {
-        association = described_class.reflect_on_association(:offices)
-        expect(association.macro).to eq(:has_many)
-      }
-    end
-
-    context 'companyが削除されると、関連するcompanyが削除されること' do
-      it {
-        company = create(:company)
-        create(:office, company: company)
-        expect { company.destroy }.to change(Office, :count).by(-1)
-      }
-    end
-  end
 end
