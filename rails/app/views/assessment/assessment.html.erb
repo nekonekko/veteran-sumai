@@ -12,11 +12,13 @@
         <section class="container mx-auto max-w-md">
             <%= form_with model: @assessment_request do |form|%>
             <h2 class="bg-blue-800 text-white max-w-lg mb-3.5">あなたの情報</h2>
-            <%= form.label :user_name, "お名前"%>
-            <%= form.text_field :user_name %><br>
+            <%= form.label :custom_name_sei, "お名前"%>
+            <%= form.text_field :custom_name_sei %>
+            <%= form.text_field :custom_name_mei%><br>
 
-            <%= form.label :name_kana, "フリガナ"%>
-            <%= form.text_field :name_kana %><br>
+            <%= form.label :custom_kana_sei, "フリガナ"%>
+            <%= form.text_field :custom_kana_sei %>
+            <%= form.text_field :custom_kana_mei %><br>
 
             <%= form.label :user_tel, "電話番号"%>
             <%= form.text_field :user_tel %><br>
