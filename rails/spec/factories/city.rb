@@ -3,7 +3,7 @@
 FactoryBot.define do
   factory :city do
     prefecture
-    name { 'XX' }
-    yomi { 'YY' }
+    name { '札幌市' }
+    yomi { 'さっぽろ' }
   end
 end
