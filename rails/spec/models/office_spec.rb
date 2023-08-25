@@ -53,4 +53,53 @@ RSpec.describe Office do
       }
     end
   end
+
+  describe '評価計算関数の動作チェック' do
+    let(:office) { build(:office) }
+
+    before do
+      reviews = FactoryBot.create_list(:review, 3)
+      assign(:reviews, reviews)
+      reviews.each do |review|
+        review.office = office
+      end
+    end
+
+    context '売却スピードの満足度, 対応満足度, 売却価格の満足度全て' do
+      it {
+        expect(office.calculate_review_mean(office.id)).to eq(11.0/3)
+      }
+    end
+
+    context '売却スピードの満足度のみ' do
+      it {
+        expect(office.calculate_review_mean(
+          office.id,
+          include_response=false,
+          include_price=false
+        )).to eq(4.0)
+      }
+    end
+
+    context '対応満足度のみ' do
+      it {
+        expect(office.calculate_review_mean(
+          office.id,
+          include_speed=false,
+          include_price=false
+        )).to eq(5.0)
+      }
+    end
+
+    context '売却価格の満足度のみ' do
+      it {
+        expect(office.calculate_review_mean(
+          office.id,
+          include_speed=false,
+          include_response=false
+        )).to eq(2.0)
+      }
+    end
+
+  end
 end
