@@ -157,18 +157,22 @@ RSpec.describe Review do
         review.sale_count_id = 8
         expect(review).not_to be_valid
       }
+
       it {
         review.gender_id = 8
         expect(review).not_to be_valid
       }
+
       it {
         review.sale_reason_id = 8
         expect(review).not_to be_valid
       }
+
       it {
         review.property_type_id = 8
         expect(review).not_to be_valid
       }
+
       it {
         review.mediation_contract_form_id = 8
         expect(review).not_to be_valid
