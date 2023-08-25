@@ -11,15 +11,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2023_08_23_044232) do
-  create_table "assess_areas", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
-    t.bigint "office_id", null: false
-    t.bigint "city_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["city_id"], name: "index_assess_areas_on_city_id"
-    t.index ["office_id"], name: "index_assess_areas_on_office_id"
-  end
-
   create_table "assessment_areas", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
     t.bigint "office_id", null: false
     t.bigint "city_id", null: false
@@ -76,8 +67,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_23_044232) do
     t.integer "ieul_office_id", null: false
     t.string "logo_url", null: false
     t.string "postal_code"
-    t.bigint "prefectures_id", null: false
-    t.bigint "cities_id", null: false
+    t.bigint "prefecture_id", null: false
+    t.bigint "city_id", null: false
     t.string "address", null: false
     t.string "phone_number"
     t.string "fax_number"
@@ -87,10 +78,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_23_044232) do
     t.text "introduction", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["cities_id"], name: "index_offices_on_cities_id"
+    t.index ["city_id"], name: "index_offices_on_city_id"
     t.index ["company_id"], name: "index_offices_on_company_id"
     t.index ["ieul_office_id"], name: "index_offices_on_ieul_office_id", unique: true
-    t.index ["prefectures_id"], name: "index_offices_on_prefectures_id"
+    t.index ["prefecture_id"], name: "index_offices_on_prefecture_id"
   end
 
   create_table "prefectures", charset: "utf8mb4", collation: "utf8mb4_general_ci", force: :cascade do |t|
@@ -137,16 +128,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_23_044232) do
     t.index ["office_id"], name: "index_reviews_on_office_id"
   end
 
-  add_foreign_key "assess_areas", "cities"
-  add_foreign_key "assess_areas", "offices"
   add_foreign_key "assessment_areas", "cities"
   add_foreign_key "assessment_areas", "offices"
   add_foreign_key "assessment_requests", "cities"
   add_foreign_key "assessment_requests", "offices"
   add_foreign_key "cities", "prefectures"
-  add_foreign_key "offices", "cities", column: "cities_id"
+  add_foreign_key "offices", "cities"
   add_foreign_key "offices", "companies"
-  add_foreign_key "offices", "prefectures", column: "prefectures_id"
+  add_foreign_key "offices", "prefectures"
   add_foreign_key "reviews", "cities"
   add_foreign_key "reviews", "offices"
 end
