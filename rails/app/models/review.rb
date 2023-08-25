@@ -12,11 +12,11 @@ class Review < ApplicationRecord
   belongs_to_active_hash :mediation_contract_form
 
   validates :ieul_office_id, presence: true
-  validates :username, :gender, :age, :property_address, :property_type, :sale_count,
+  validates :username, :gender, :age, 
+            :property_address, :property_type, :sale_count,
             :considered_sale_on, :assessment_requested_on, :started_selling_on, :sold_on,
-            :transfered_on, :sale_speed_evaluation, :assessed_price, :sale_price,
-            :contract_price, :sale_price_evaluation, :mediation_contract_form, :headline,
-            :sale_reason, :sale_anxiety_reason, :choose_agent_reaseon, :company_response_evaluation,
+            :transfered_on, :mediation_contract_form, :headline,
+            :sale_reason, :sale_anxiety_reason, :choose_agent_reaseon,
             :company_response_evaluation_reason, :advice, presence: true
 
   validates :price_reduced, inclusion: { in: [true, false] }

@@ -132,7 +132,7 @@ namespace :import_csv do # rubocop:disable Metrics/BlockLength
             sale_anxiety_reason: row['売却時に不安だったこと'],
             choose_agent_reaseon: row['この会社に決めた理由'],
             company_response_evaluation: row['不動産会社の対応満足度'],
-            company_response_evaluation_reason: row['不動産会社の対応満足度の理由'].to_i,
+            company_response_evaluation_reason: row['不動産会社の対応満足度の理由'],
             advice: row['今後売却する人へのアドバイス'],
             improvement_point: row['不動産会社に改善してほしい点']
           )
