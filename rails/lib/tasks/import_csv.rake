@@ -97,10 +97,6 @@ namespace :import_csv do # rubocop:disable Metrics/BlockLength
 
   desc 'lib/assets/review.zipを読み込みreviewsテーブルに挿入する'
   task review: :environment do
-    sale_count_list = { '初めて' => 0, '2回目' => 1, '3回以上' => 2 }
-    sale_reason_list = { '住み替え' => 0, '相続' => 1, '転職' => 2, '離婚' => 3, '資産整理' => 4, '金銭的な理由' => 5, 'その他' => 6 }
-    property_type_list = { 'マンション' => 0, '戸建て' => 1, '土地' => 2 }
-    gender_list = { '男性' => 0, '女性' => 1, 'その他・不明' => 2 }
     Zip::File.open('lib/assets/review.csv.zip') do |zip_file|
       entry = zip_file.glob('review.csv').first
       data = entry.get_input_stream.read
@@ -111,11 +107,11 @@ namespace :import_csv do # rubocop:disable Metrics/BlockLength
             office_id: row['ieul_店舗id'].to_i,
             ieul_office_id: row['ieul_店舗id'].to_i,
             username: row['名前'],
-            gender: gender_list[row['性別']],
+            gender_id: Gender.find_by_name(row['性別']).id,
             age: row['年齢'].to_i,
             city_id: City.find_by(name: row['市区町村']).id,
             property_address: row['住所全部'],
-            property_type: property_type_list[row['物件種別']],
+            property_type_id: PropertyType.find_by_name(row['物件種別']).id,
             sale_count_id: SaleCount.find_by_name(row['売却回数']).id,
             considered_sale_on: row['売却検討時期'],
             assessment_requested_on: row['査定依頼時期'],
@@ -130,9 +126,9 @@ namespace :import_csv do # rubocop:disable Metrics/BlockLength
             reduced_price: row['値下げ価格'].to_i,
             contract_price: row['成約価格'].to_i,
             sale_price_evaluation: row['売却価格の満足度'].to_i,
-            mediation_contract_form: row['媒介契約の形態'].to_i,
+            mediation_contract_form_id: row['媒介契約の形態'].to_i,
             headline: row['見出し'],
-            sale_reason: sale_reason_list[row['売却理由']].to_i,
+            sale_reason_id: row['売却理由'].to_i,
             sale_anxiety_reason: row['売却時に不安だったこと'],
             choose_agent_reaseon: row['この会社に決めた理由'],
             company_response_evaluation: row['不動産会社の対応満足度'],
