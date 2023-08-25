@@ -21,14 +21,14 @@ class Office < ApplicationRecord
     reviews = Review.find_by_office_id(office_id)
 
     if reviews.length == 0
-      return 0
+      raise RuntimeError, 'この店舗にはまだ口コミが存在しません！'
     end
 
     if include_speed == false && include_response == false && include_price == false
       raise ArgumentError, '少なくとも1つはtrueにしてください！'
     end
 
-    sum = 0
+    sum = 0.0
     reviews.each do |review|
       if include_speed
         sum += review.sale_speed_evaluation
