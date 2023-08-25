@@ -1,4 +1,4 @@
 # frozen_string_literal: true
 
-class AssessmentArea < ActiveRecord
+class AssessmentArea < ApplicationRecord
 end
