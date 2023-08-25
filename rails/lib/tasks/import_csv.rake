@@ -97,11 +97,9 @@ namespace :import_csv do # rubocop:disable Metrics/BlockLength
   desc 'lib/assets/review.zipを読み込みreviewsテーブルに挿入する'
   task review: :environment do
     sale_count_list = { '初めて' => 0, '2回目' => 1, '3回以上' => 3 }
-    mediation_contract_form_list = { '専属専任媒介契約' => 0, '専任媒介契約' => 1, '一般媒介契約' => 3, 'わからない' => 4 }
     sale_reason_list = { '住み替え' => 0, '相続' => 1, '転職' => 2, '離婚' => 3, '資産整理' => 4, '金銭的な理由' => 5, 'その他' => 6 }
     property_type_list = { 'マンション' => 0, '戸建て' => 1, '土地' => 2 }
     gender_list = { '男性' => 0, '女性' => 1, 'その他・不明' => 2 }
-    price_reduced_list = { 0 => false, 1 => true }
     Zip::File.open('lib/assets/review.csv.zip') do |zip_file|
       entry = zip_file.glob('review.csv').first
       data = entry.get_input_stream.read
