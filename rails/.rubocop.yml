@@ -20,6 +20,7 @@ Rails:
 Style/HashSyntax:
   Exclude:
       - spec/models/*
+      - lib/tasks/*
 
 Style/Documentation:
   Enabled: false
