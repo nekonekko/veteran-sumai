@@ -101,26 +101,26 @@ namespace :import_csv do # rubocop:disable Metrics/BlockLength
     Zip::File.open('lib/assets/company_and_office.csv.zip') do |zip_file|
       entry = zip_file.glob('company_and_office.csv').first
       data = entry.get_input_stream.read
-  
+
       ActiveRecord::Base.transaction do
         AssessmentArea.delete_all
 
         CSV.parse(data.force_encoding('UTF-8'), headers: true).each do |row|
           office_id = row['ieul_店舗id'].to_i
           city_ids = row['査定依頼可能エリア'].split(',').map(&:to_i)
-          
+
           office = Office.find(office_id)
 
           city_ids.each do |city_id|
             office.assessment_areas.create!(
-              city_id: city_id
-            ) 
+              city_id:
+            )
           end
         end
       end
     end
   end
-  
+
   desc 'lib/assets/review.zipを読み込みreviewsテーブルに挿入する'
   task review: :environment do
     Zip::File.open('lib/assets/review.csv.zip') do |zip_file|
