@@ -1,4 +1,6 @@
-<%= stylesheet_link_tag "color_stars", "data-turbo-track": "reload" %>
+<% content_for :head_tag do %>
+  <%= stylesheet_link_tag "color_stars", "data-turbo-track": "reload" %>
+<% end %>
 <% #　TODO: #57 直接書き込まれている文字列を変数に置き換え %>
 <section>
   <% # TODO: company.name + office.name で置き換え %>
