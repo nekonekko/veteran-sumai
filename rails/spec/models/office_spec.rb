@@ -58,7 +58,7 @@ RSpec.describe Office do
     let(:office) { build(:office) }
 
     before do
-      reviews = FactoryBot.create_list(:review, 3)
+      reviews = create_list(:review, 3)
       assign(:reviews, reviews)
       reviews.each do |review|
         review.office = office
