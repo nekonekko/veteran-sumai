@@ -12,7 +12,7 @@ class Review < ApplicationRecord
   belongs_to_active_hash :mediation_contract_form
 
   validates :ieul_office_id, presence: true
-  validates :username, :gender, :age, 
+  validates :username, :gender, :age,
             :property_address, :property_type, :sale_count,
             :considered_sale_on, :assessment_requested_on, :started_selling_on, :sold_on,
             :transfered_on, :mediation_contract_form, :headline,
@@ -28,6 +28,5 @@ class Review < ApplicationRecord
             numericality: { only_integer: true, allow_nil: true }
 
   validates :sale_speed_evaluation, :company_response_evaluation, :sale_price_evaluation,
-            numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 5 },
-            allow_nil: true
+            numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 5 }
 end
