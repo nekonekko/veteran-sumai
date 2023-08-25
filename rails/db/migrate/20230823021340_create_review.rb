@@ -27,7 +27,7 @@ class CreateReview < ActiveRecord::Migration[7.0]
       t.integer :sale_price_evaluation, null: false, comment: '売却価格の満足度'
       t.integer :mediation_contract_form, null: false, comment: '媒体契約の形態'
       t.text :headline, null: false, comment: '見出し'
-      t.integer :sale_reason, null: false, comment: '売却価格'
+      t.integer :sale_reason, null: false, comment: '売却理由'
       t.text :sale_anxiety_reason, null: false, comment: '売却時に不安だったこと'
       t.text :choose_agent_reaseon, null: false, comment: 'この会社に決めた理由'
       t.integer :company_response_evaluation, null: false, comment: '不動産会社の対応満足度'
