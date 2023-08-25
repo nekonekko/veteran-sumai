@@ -11,8 +11,7 @@ class Review < ApplicationRecord
   belongs_to_active_hash :property_type
   belongs_to_active_hash :mediation_contract_form
 
-  validates :ieul_office_id, presence: true
-  validates :username, :gender, :age,
+  validates :ieul_office_id, :username, :gender, :age,
             :property_address, :property_type, :sale_count,
             :considered_sale_on, :assessment_requested_on, :started_selling_on, :sold_on,
             :transfered_on, :mediation_contract_form, :headline,
