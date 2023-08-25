@@ -11,7 +11,7 @@ class CreateReview < ActiveRecord::Migration[7.0]
       t.references :city, index: { name: 'property_city_id' }, null: false, foreign_key: true, comment: '市区町村'
       t.string :property_address, null: false, comment: '住所'
       t.integer :property_type, null: false, comment: '物件種別'
-      t.integer :sale_count, null: false, comment: '売却回数'
+      t.integer :sale_count_id, null: false, comment: '売却回数'
       t.date :considered_sale_on, null: false, comment: '売却検討時期'
       t.date :assessment_requested_on, null: false, comment: '売却依頼時期'
       t.date :started_selling_on, null: false, comment: '売出時期'

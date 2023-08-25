@@ -10,6 +10,7 @@ namespace :import_csv do # rubocop:disable Metrics/BlockLength
     Rake::Task['import_csv:city'].invoke
     Rake::Task['import_csv:company'].invoke
     Rake::Task['import_csv:office'].invoke
+    Rake::Task['import_csv:review'].invoke
   end
 
   desc 'lib/assets/prefecture.csv.zipを読み込みprefecturesテーブルに挿入する'
@@ -74,7 +75,7 @@ namespace :import_csv do # rubocop:disable Metrics/BlockLength
         CSV.parse(data.force_encoding('UTF-8'), headers: true).each do |row|
           office = Office.find_or_initialize_by(ieul_office_id: row['ieul_店舗id'].to_i)
           office.update!(
-            name: row['店舗'],
+            name: row['店舗名'],
             company_id: row['ieul_企業id'].to_i,
             ieul_office_id: row['ieul_店舗id'].to_i,
             logo_url: row['ロゴURL'],
@@ -96,7 +97,7 @@ namespace :import_csv do # rubocop:disable Metrics/BlockLength
 
   desc 'lib/assets/review.zipを読み込みreviewsテーブルに挿入する'
   task review: :environment do
-    sale_count_list = { '初めて' => 0, '2回目' => 1, '3回以上' => 3 }
+    sale_count_list = { '初めて' => 0, '2回目' => 1, '3回以上' => 2 }
     sale_reason_list = { '住み替え' => 0, '相続' => 1, '転職' => 2, '離婚' => 3, '資産整理' => 4, '金銭的な理由' => 5, 'その他' => 6 }
     property_type_list = { 'マンション' => 0, '戸建て' => 1, '土地' => 2 }
     gender_list = { '男性' => 0, '女性' => 1, 'その他・不明' => 2 }
@@ -115,7 +116,7 @@ namespace :import_csv do # rubocop:disable Metrics/BlockLength
             city_id: City.find_by(name: row['市区町村']).id,
             property_address: row['住所全部'],
             property_type: property_type_list[row['物件種別']],
-            sale_count: sale_count_list[row['売却回数']],
+            sale_count_id: SaleCount.find_by_name(row['売却回数']).id,
             considered_sale_on: row['売却検討時期'],
             assessment_requested_on: row['査定依頼時期'],
             started_selling_on: row['売出時期'],
