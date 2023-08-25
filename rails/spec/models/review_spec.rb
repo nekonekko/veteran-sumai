@@ -10,7 +10,7 @@ RSpec.describe Review do
       it { expect(review).to be_valid }
     end
 
-    context 'String ,Text、 Date型パラメータがnillの場合' do
+    context 'String ,Text、 Date型パラメータがnilの場合' do
       it {
         review.ieul_office_id = nil
         expect(review).not_to be_valid
@@ -148,6 +148,29 @@ RSpec.describe Review do
 
       it {
         review.sale_price_evaluation = 8
+        expect(review).not_to be_valid
+      }
+    end
+
+    context 'ActiveHash型のパラメータがid以外の場合' do
+      it {
+        review.sale_count_id = 8
+        expect(review).not_to be_valid
+      }
+      it {
+        review.gender_id = 8
+        expect(review).not_to be_valid
+      }
+      it {
+        review.sale_reason_id = 8
+        expect(review).not_to be_valid
+      }
+      it {
+        review.property_type_id = 8
+        expect(review).not_to be_valid
+      }
+      it {
+        review.mediation_contract_form_id = 8
         expect(review).not_to be_valid
       }
     end

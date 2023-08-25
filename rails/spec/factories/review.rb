@@ -9,8 +9,8 @@ FactoryBot.define do
     age { 46 }
     city
     property_address { '品川2丁目' }
-    property_type_id { 0 }
-    sale_count_id { 0 }
+    property_type_id { 1 }
+    sale_count_id { 1 }
     considered_sale_on { 2018 - 0o2 - 14 }
     assessment_requested_on { 2018 - 0o2 - 14 }
     started_selling_on { 2018 - 0o2 - 14 }
@@ -32,7 +32,7 @@ FactoryBot.define do
       "港区品川：吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事 \r\nだけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれ"
     end
     company_response_evaluation { 5 }
-    company_response_evaluation_reason { 0 }
+    company_response_evaluation_reason { 1 }
     advice { "港区品川：木曾路はすべて山の中である。\r\nあるところは岨づたいに" }
     improvement_point { '売却方法の選択肢をアドバイスして欲しい。' }
   end

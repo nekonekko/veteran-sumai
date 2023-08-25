@@ -20,6 +20,16 @@ class Review < ApplicationRecord
 
   validates :price_reduced, inclusion: { in: [true, false] }
 
+  validates :sale_count_id, inclusion: { in: [1, 2, 3] }
+
+  validates :gender_id, inclusion: { in: [1, 2, 3] }
+
+  validates :sale_reason_id, inclusion: { in: [1, 2, 3, 4, 5, 6, 99] }
+
+  validates :property_type_id, inclusion: { in: [1, 2, 3] }
+
+  validates :mediation_contract_form_id, inclusion: { in: [1, 2, 3, 4] }
+
   validates :age, :assessed_price, :sale_price, :contract_price,
             numericality: { only_integer: true }
 

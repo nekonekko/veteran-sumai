@@ -6,20 +6,20 @@ RSpec.describe PropertyType do
   describe '#confirm' do
     let(:property_type) { described_class.find(id) }
 
-    context 'idが0の場合' do
-      let(:id) { 0 }
+    context 'idが1の場合' do
+      let(:id) { 1 }
 
       it { expect(property_type.name).to eq 'マンション' }
     end
 
-    context 'idが1の場合' do
-      let(:id) { 1 }
+    context 'idが2の場合' do
+      let(:id) { 2 }
 
       it { expect(property_type.name).to eq '戸建て' }
     end
 
-    context 'idが2の場合' do
-      let(:id) { 2 }
+    context 'idが3の場合' do
+      let(:id) { 3 }
 
       it { expect(property_type.name).to eq '土地' }
     end

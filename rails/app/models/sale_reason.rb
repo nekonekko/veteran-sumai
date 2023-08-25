@@ -1,9 +1,6 @@
 # frozen_string_literal: true
 
 class SaleReason < ActiveHash::Base
-  include ActiveHash::Associations
-  has_many :reviews, dependent: :destroy
-
   self.data = [
     { id: 1, name: '住み替え' },
     { id: 2, name: '相続' },
