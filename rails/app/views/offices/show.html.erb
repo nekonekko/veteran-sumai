@@ -1,10 +1,8 @@
 <% content_for :head_tag do %>
   <%= stylesheet_link_tag "color_stars", "data-turbo-track": "reload" %>
 <% end %>
-<% #　TODO: #57 直接書き込まれている文字列を変数に置き換え %>
 <section>
-  <% # TODO: company.name + office.name で置き換え %>
-  <h1 class="text-xl sm:text-2xl md:text-4xl text-center">サマーテックサークル 六本木支店</h1>
+  <h1 class="text-xl sm:text-2xl md:text-4xl text-center"><%= "#{@office.company.name} #{@office.name}" %></h1>
   <% # ↓のdivタグ以下のタグ構成について悩んでいます。とりあえずdivでchartとキャッチコピー&紹介文を囲みましたが、他にいい方法があれば教えて欲しいです %>
   <div class="mb-10 md:mb-0 mt-10 md:gap-5 flex flex-row flex-wrap md:flex-nowrap justify-center">
     <% # TODO: チャートに満足度の値を渡す %>
@@ -17,10 +15,8 @@
       <canvas data-offices-target="canvas"></canvas>
     </div>
     <section class="md:pt-10 md:w-1/2 2xl:w-2/3">
-      <% # TODO: office.catch_copyで置き換え %>
-      <h2 class="text-lg lg:text-2xl mb-1.5">ベテランすまいの開発はサマーテックサークル 六本木支店にお任せください</h2>
-      <% # TODO: office.introduction で置き換え %>
-      <p>クロステック、こうくん、結城、もこの4人で頑張っています！</p>
+      <h2 class="text-lg lg:text-2xl mb-1.5"><%= @office.catch_copy %></h2>
+      <p><%= @office.introduction %></p>
     </section>
   </section>
   <%= render partial: 'about_office' %> 
