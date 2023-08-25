@@ -18,7 +18,7 @@ class Office < ApplicationRecord
     # 計算に含めるかどうかを指定する
     # 3つともfalseにするとエラーが出るようにしてあります
 
-    reviews = Review.find_by_office_id(office_id)
+    reviews = Office.find(office_id).reviews
 
     if reviews.length == 0
       raise RuntimeError, 'この店舗にはまだ口コミが存在しません！'
