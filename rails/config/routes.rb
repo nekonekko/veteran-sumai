@@ -2,7 +2,8 @@
 
 Rails.application.routes.draw do
   # get 'offices/:id', to: 'offices#show' <- controller作成後はこっちに
-  get 'offices', to: 'offices#show'
+  get 'offices', to: 'offices#show', as: :office
+  get 'prefectures/:prefecture_id/cities/:city_id', to: 'cities#show', as: :city
 
   mount KomachiHeartbeat::Engine => '/ops'
 end
