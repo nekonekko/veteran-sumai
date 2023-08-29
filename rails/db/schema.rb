@@ -29,8 +29,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_23_044232) do
     t.float "property_exclusive_area", null: false
     t.float "property_land_area", null: false
     t.float "property_building_area", null: false
-    t.integer "property_building_area_unit", null: false
-    t.float "property_floor_area", null: false
     t.string "url_param", null: false
     t.integer "property_room_plan", null: false
     t.integer "property_constructed_year", null: false
