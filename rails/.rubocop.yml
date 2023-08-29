@@ -19,7 +19,7 @@ Rails:
 
 Style/HashSyntax:
   Exclude:
-      - spec/models/*
+      - spec/**/*
       - lib/tasks/*
 
 Style/Documentation:

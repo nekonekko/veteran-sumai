@@ -4,20 +4,26 @@ require 'rails_helper'
 
 RSpec.describe 'offices/show' do
   let!(:company) { create(:company) }
-  let!(:office) { create(:office, company:) }
+  let!(:office) { create(:office, company: company) }
   let!(:sale_count) { SaleCount.create(id: 1) }
   let!(:sale_reason) { SaleReason.create(id: 1) }
   let!(:city) { create(:city) }
 
   before do
-    create_list(:review, 3, office:, city:, sale_count:, sale_reason:,
+    create_list(:review, 3, office: office, city: city, sale_count: sale_count, sale_reason: sale_reason,
                             improvement_point: 'あいうえお')
   end
 
-  it 'render correct office info' do
-    visit office_path(office)
-    expect(page).to have_selector('h1', text: 'SPeee不動産 赤坂店')
-    expect(page).to have_selector('h2', text: '不動産の売却はSpeee1不動産にお任せください')
+  context 'render correct office info' do
+    it 'correct office name' do
+      visit office_path(office)
+      expect(page).to have_selector('h1', text: 'SPeee不動産 赤坂店')
+    end
+
+    it 'correct catchcopy' do
+      visit office_path(office)
+      expect(page).to have_selector('h2', text: '不動産の売却はSpeee1不動産にお任せください')
+    end
   end
 
   context 'render correct review info' do
