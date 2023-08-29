@@ -1,0 +1,35 @@
+<article>
+    <h2><strong><%= office_fullname(review.office) %>について</strong></h2>
+    <section class="flex flex-row flex-wrap mt-5 mb-20">
+        <table class="text-left">
+        <tr>
+            <th scope="row" class="px-2 py-0.5 whitespace-nowrap">店舗名</th>
+            <td class="px-2 py-0.5"><%= office_fullname(review.office) %></td>
+        </tr>
+        <tr>
+            <th scope="row" class="px-2 py-0.5 whitespace-nowrap">郵便番号</th>
+            <td class="px-2 py-0.5"><%= review.office.postal_code %></td>
+        </tr>
+        <tr>
+            <th scope="row" class="px-2 py-0.5 whitespace-nowrap">住所</th>
+            <td class="px-2 py-0.5"><%= office_fulladdress(review.office) %></td>
+        </tr>
+        <tr>
+            <th scope="row" class="px-2 py-0.5 whitespace-nowrap">電話番号</th>
+            <td class="px-2 py-0.5"><%= review.office.phone_number %></td>
+        </tr>
+        <tr>
+            <th scope="row" class="px-2 py-0.5 whitespace-nowrap">FAX</th>
+            <td class="px-2 py-0.5"><%= review.office.fax_number %></td>
+        </tr>
+        <tr>
+            <th scope="row" class="px-2 py-0.5 whitespace-nowrap">営業時間</th>
+            <td class="px-2 py-0.5"><%= review.office.business_hours %></td>
+        </tr>
+        <tr>
+            <th scope="row" class="px-2 py-0.5 whitespace-nowrap">定休日</th>
+            <td class="px-2 py-0.5"><%= review.office.holiday %></td>
+        </tr>
+        </table>
+    </section>
+</article>
