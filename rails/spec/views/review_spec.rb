@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'reviews/show', type: :feature do
   let!(:office) { create(:office) }
-  let!(:review) { create(:review, office:) }
+  let!(:review) { create(:review, office: office) }
 
   it 'correct reviewpage headline' do
     visit review_path(review)
