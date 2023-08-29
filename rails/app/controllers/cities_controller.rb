@@ -2,9 +2,6 @@
 
 class CitiesController < ApplicationController
   def show
-    @city = City.find(params[:city_id])
-    @prefecture = Prefecture.find(params[:prefecture_id])
-
-    @cities = @prefecture.cities
+    @city = City.find(params[:id])
   end
 end
