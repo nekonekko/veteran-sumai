@@ -2,6 +2,6 @@
 
 class ReviewsController < ApplicationController
   def show
-    @review = Review.find(params[:review_id])
+    @review = Review.find(params[:id])
   end
 end
