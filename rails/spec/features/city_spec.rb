@@ -4,13 +4,10 @@ require 'rails_helper'
 
 RSpec.describe 'cities/show' do
   let!(:prefecture) { create(:prefecture) }
-
-  before do
-    @cities = create_list(:city, 20, prefecture: prefecture)
-  end
+  let!(:cities) { create_list(:city, 20, prefecture: prefecture) }
 
   it 'render correct city page' do
-    visit prefecture_city_path(prefecture.id, @cities.first.id)
+    visit prefecture_city_path(prefecture.id, cities.first.id)
     expect(page).to have_selector('h1', text: '北海道 札幌市の不動産会社')
     expect(page).to have_selector('h2', text: '北海道全域')
     expect(page.all('li.address-item').count).to eq 20
