@@ -3,7 +3,8 @@
 class AssessmentController < ApplicationController
   def show
     if params[:office_id].nil?
-      @office_id = params[:office_id]
+      redirect_to "/"
+
     else
       office_id = params[:office_id]
       assessment_areas = Office.find(office_id).assessment_areas
