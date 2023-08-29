@@ -56,23 +56,25 @@ RSpec.describe Office do
 
   describe '評価計算関数の動作チェック' do
     let(:office) { build(:office) }
+    let(:office_without_review) { build(:office, id: 2) }
     let(:sale_count) { SaleCount.create(id: 1) }
     let(:sale_reason) { SaleReason.create(id: 1) }
     let(:city) { build(:city) }
     let(:review) { build(:review) }
 
+    before do
+      create_list(:review, 3, office: office, city: city, sale_count: sale_count, sale_reason: sale_reason,
+                              improvement_point: 'あいうえお')
+    end
+
     context '売却スピードの満足度, 対応満足度, 売却価格の満足度全て' do
       it {
-        create_list(:review, 3, office: office, city: city, sale_count: sale_count, sale_reason: sale_reason,
-                                improvement_point: 'あいうえお')
         expect(office.calculate_review_mean).to eq(11.0 / 3)
       }
     end
 
     context '売却スピードの満足度のみ' do
       it {
-        create_list(:review, 3, office: office, city: city, sale_count: sale_count, sale_reason: sale_reason,
-                                improvement_point: 'あいうえお')
         expect(office.calculate_review_mean(
                  include_response: false,
                  include_price: false
@@ -82,8 +84,6 @@ RSpec.describe Office do
 
     context '対応満足度のみ' do
       it {
-        create_list(:review, 3, office: office, city: city, sale_count: sale_count, sale_reason: sale_reason,
-                                improvement_point: 'あいうえお')
         expect(office.calculate_review_mean(
                  include_speed: false,
                  include_price: false
@@ -93,8 +93,6 @@ RSpec.describe Office do
 
     context '売却価格の満足度のみ' do
       it {
-        create_list(:review, 3, office: office, city: city, sale_count: sale_count, sale_reason: sale_reason,
-                                improvement_point: 'あいうえお')
         expect(office.calculate_review_mean(
                  include_speed: false,
                  include_response: false
@@ -104,14 +102,12 @@ RSpec.describe Office do
 
     context '口コミがない場合' do
       it {
-        expect(office.calculate_review_mean).to eq(0)
+        expect(office_without_review.calculate_review_mean).to eq(0)
       }
     end
 
     context '引数が全てfalseの場合' do
       it {
-        create_list(:review, 3, office: office, city: city, sale_count: sale_count, sale_reason: sale_reason,
-                                improvement_point: 'あいうえお')
         expect do
           office.calculate_review_mean(
             include_speed: false,
