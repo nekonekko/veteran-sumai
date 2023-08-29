@@ -1,6 +1,6 @@
 <article>
     <section class="text-left">
-        <p><strong>売却した不動産会社名：</strong><%= office_fullname(review.office) %></p>
+        <p><strong>売却した不動産会社名：</strong><%= company_and_office_name(review.office) %></p>
         <p><strong>住所：</strong><%= review_address(review) %></p>
         <p><strong>売却の理由：</strong><%= review.sale_reason.name%></p>
         <p class="mb-5"><strong>売却経験：</strong><%= review.sale_count.name %></p>
