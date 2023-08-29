@@ -25,5 +25,5 @@
     </section>
   </section>
   <%= render partial: 'about_office', locals: { office: @office } %>
-  <%= render partial: 'review_list', locals: { reviews: @reviews } %>
+  <%= render partial: 'review_list', locals: { reviews: @office.reviews } %>
 </div>
