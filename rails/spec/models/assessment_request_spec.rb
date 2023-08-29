@@ -40,20 +40,6 @@ RSpec.describe AssessmentRequest do
         end
       end
 
-      context '物件の建物面積の単位が空の場合' do
-        it '無効であること' do
-          assessment = build(:assessment_request, property_building_area_unit: nil)
-          expect(assessment).not_to be_valid
-        end
-      end
-
-      context '物件の階数が空の場合' do
-        it '無効であること' do
-          assessment = build(:assessment_request, property_floor_area: nil)
-          expect(assessment).not_to be_valid
-        end
-      end
-
       context 'URLパラメータが空の場合' do
         it '無効であること' do
           assessment = build(:assessment_request, url_param: nil)

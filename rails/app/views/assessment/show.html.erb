@@ -29,10 +29,9 @@
         <h2 class="bg-blue-400 text-white my-5 px-3">物件の情報</h2>
         <div class='grid grid-cols-3 gap-3 mb-3 xl:w-5/6 mx-auto'>
             <%= form.label :city, "市区町村"%>
-            <%= form.select :city, options_for_select({
-                '横浜市' => 0,
-                '相模原市' => 1
-                }), prompt: '市区町村を選択してください。', class: 'col-span-2' %>
+            <%= form.select :city, options_for_select(
+                @available_cities
+                ), prompt: '市区町村を選択してください。', class: 'col-span-2' %>
         </div>
 
         <div class='grid grid-cols-3 gap-3 xl:w-5/6 mx-auto'>
@@ -57,17 +56,6 @@
 
             <%= form.label :property_building_area, "建物面積"%>
             <%= form.text_field :property_building_area, class: 'col-span-2' %>
-
-            <p>建物面積単位</p>
-            <span class='col-span-2'>
-            <%= form.radio_button :property_building_area_unit, :one %>
-            <%= form.label :property_building_area_unit, "平方メートル", {value: :one, style: "display: inline-block;"} %>
-            <%= form.radio_button :property_building_area_unit, :two %>
-            <%= form.label :property_building_area_unit, "坪", {value: :two, style: "display: inline-block;"} %>
-            </span>
-
-            <%= form.label :property_floor_area, "延床面積"%>
-            <%= form.text_field :property_floor_area, class: 'col-span-2' %>
         </div>
 
         <div class='grid grid-cols-3 gap-3 my-3 xl:w-5/6 mx-auto'>
