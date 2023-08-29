@@ -18,7 +18,28 @@ class AssessmentController < ApplicationController
     end
   end
 
-  def new
-    @assessment_request = AssessmentRequest.new
+  def create
+    assessment_request_params = {
+      office: params[:office_id],
+      city: params[:city],
+      property_address: params[:property_address],
+      property_type: params[:property_type],
+      property_exclusive_area: params[:property_exclusive_area],
+      property_land_area: params[:property_land_area],
+      property_building_area: params[:property_building_area],
+      url_param: 'beteran-sumai',
+      property_room_plan: params[:property_room_plan],
+      property_constructed_year: params[:property_constructed_year],
+      user_email: params[:user_email],
+      user_name: params[:custom_name_sei] + ' ' + params[:custom_name_mei],
+      user_name_kana: params[:custom_kana_sei]+ ' ' + params[:custom_kana_mei],
+      user_tel: params[:user_tel]
+    }
+    @assessment_request = AssessmentRequest.new(assessment_request_params)
   end
+
+  private
+    def assessment_requests_params
+      params.require(:assessment_request).permit(:custom_name_sei, :custom_name_mei, :custom_kana_sei, :custom_kana_mei, :user_tel, :user_email, :city, :property_address, :property_type, :property_exclusive_area, :property_land_area, :property_building_area, :property_room_plan, :property_constructed_year )
+    end
 end
