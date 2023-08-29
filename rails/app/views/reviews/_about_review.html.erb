@@ -1,0 +1,53 @@
+<article>
+    <section class="text-left">
+        <p><strong>売却した不動産会社名：</strong><%= office_fullname(review.office) %></p>
+        <p><strong>住所：</strong><%= review_address(review) %></p>
+        <p><strong>売却の理由：</strong><%= review.sale_reason.name%></p>
+        <p class="mb-5"><strong>売却経験：</strong><%= review.sale_count.name %></p>
+
+        <p class="mb-5"><strong>売却時に不安だったこと</strong><br><%= review.sale_anxiety_reason %></p>
+
+        <p class="mb-5"><strong>この会社に決めた決め手</strong><br><%= review.choose_agent_reaseon %></p>
+
+        <p class="mb-5"><strong>不動産会社の対応満足度：</strong>★<%= review.company_response_evaluation%><br><%=review.company_response_evaluation_reason %></p>
+
+        <p class="mb-5"><strong>今後売却する人へのアドバイス</strong><br><%= review.advice %></p>
+        
+        <% if !review.improvement_point.nil? %>
+            <p class="mb-5"><strong>不動産会社に改善してほしい点</strong><br><%= review.improvement_point %></p>
+        <% end %>
+
+        <p><strong>売却時期と価格について</strong></p>
+        <table class="w-full border mb-10">
+            <tbody>
+                <tr class="border-b">
+                    <td class="p-2">売却検討</td>
+                    <td class="p-2"><%=review.considered_sale_on.strftime("%Y年 %m月")%></td>
+                    <td class="p-2"></td>
+                </tr>
+                <tr class="border-b">
+                    <td class="p-2">査定依頼時期 / 価格</td>
+                    <td class="p-2"><%=review.assessment_requested_on.strftime("%Y年 %m月")%></td>
+                    <td class="p-2"><%=review.assessed_price%>円</td>
+                </tr>
+                <tr class="border-b">
+                    <td class="p-2">売出時期 / 価格</td>
+                    <td class="p-2"><%=review.started_selling_on.strftime("%Y年 %m月")%></td>
+                    <td class="p-2"><%=review.sale_price%>円</td>
+                </tr>
+                <tr class="border-b">
+                    <td class="p-2">売却時期 / 価格</td>
+                    <td class="p-2"><%=review.sold_on.strftime("%Y年 %m月")%></td>
+                    <td class="p-2"><%=review.contract_price%>円</td>
+                </tr>
+                <tr>
+                    <td class="p-2">引き渡し時期</td>
+                    <td class="p-2"><%=review.transfered_on.strftime("%Y年 %m月")%></td>
+                    <td class="p-2"></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    </div>
+</article>

@@ -1,0 +1,8 @@
+<% content_for :head_tag do %>
+  <%= stylesheet_link_tag "color_stars", "data-turbo-track": "reload" %>
+<% end %>
+<section>
+  <h1 class="text-xl sm:text-2xl md:text-4xl text-center mb-20"><%= @review.headline %></h1>
+</section>
+<%= render partial: 'about_review', locals: { review: @review } %>
+<%= render partial: 'about_office', locals: { review: @review } %>

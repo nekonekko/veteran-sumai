@@ -21,6 +21,7 @@ Style/HashSyntax:
   Exclude:
       - spec/**/*
       - lib/tasks/*
+      - spec/features/*
 
 Style/Documentation:
   Enabled: false
