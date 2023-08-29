@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class AssessmentController < ApplicationController
-  def assessment; end
+  def show
+  end
 
   def new
     @assessment_request = AssessmentRequest.new
