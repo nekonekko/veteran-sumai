@@ -15,13 +15,12 @@ RSpec.describe 'offices/show' do
   end
 
   it 'render correct office page' do
-
-      visit office_path(office)
-      expect(page).to have_selector('h1', text: 'SPeee不動産 赤坂店')
-      expect(page).to have_selector('h2', text: '不動産の売却はSpeee1不動産にお任せください')
-      expect(page).to have_selector('h2', text: 'SPeee不動産 赤坂店について')
-      expect(page).to have_selector('h2', text: 'SPeee不動産 赤坂店で売却した人の口コミ')
-      expect(page).to have_selector('h3', text: '港区：担当者の対応が良かったです。')
-      expect(page.all('article.review-item').count).to eq 3
+    visit office_path(office)
+    expect(page).to have_selector('h1', text: 'SPeee不動産 赤坂店')
+    expect(page).to have_selector('h2', text: '不動産の売却はSpeee1不動産にお任せください')
+    expect(page).to have_selector('h2', text: 'SPeee不動産 赤坂店について')
+    expect(page).to have_selector('h2', text: 'SPeee不動産 赤坂店で売却した人の口コミ')
+    expect(page).to have_selector('h3', text: '港区：担当者の対応が良かったです。')
+    expect(page.all('article.review-item').count).to eq 3
   end
 end
