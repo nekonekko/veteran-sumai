@@ -23,7 +23,6 @@ class Office < ApplicationRecord
     if reviews.empty?
       # TODO: errorを出すほどではないと思うので、warningを出しつつ0を返したかった
       #       warningの出し方がわからなかったので0を返すだけになっています
-      # raise RuntimeError, 'この店舗にはまだ口コミが存在しません！'
 
       return 0
     end
