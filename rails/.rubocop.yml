@@ -25,6 +25,14 @@ Style/HashSyntax:
 Style/Documentation:
   Enabled: false
 
+Metrics/CyclomaticComplexity:
+  Exclude:
+      - app/models/office.rb
+
+Metrics/PerceivedComplexity:
+  Exclude:
+      - app/models/office.rb
+
 Metrics/MethodLength:
   Enabled: false
 

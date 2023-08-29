@@ -11,11 +11,11 @@ FactoryBot.define do
     property_address { '品川2丁目' }
     property_type_id { 1 }
     sale_count_id { 1 }
-    considered_sale_on { 2018 - 0o2 - 14 }
-    assessment_requested_on { 2018 - 0o2 - 14 }
-    started_selling_on { 2018 - 0o2 - 14 }
-    sold_on { 2018 - 0o2 - 14 }
-    transfered_on { 2018 - 0o2 - 14 }
+    considered_sale_on { Date.new(2018, 2, 18) }
+    assessment_requested_on { Date.new(2018, 2, 18) }
+    started_selling_on { Date.new(2018, 2, 18) }
+    sold_on { Date.new(2018, 2, 18) }
+    transfered_on { Date.new(2018, 2, 18) }
     sale_speed_evaluation { 4 }
     assessed_price { 22_000_000 }
     sale_price { 22_500_000 }
