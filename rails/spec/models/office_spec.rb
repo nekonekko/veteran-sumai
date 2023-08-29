@@ -57,8 +57,8 @@ RSpec.describe Office do
   describe '評価計算関数の動作チェック' do
     let(:office) { build(:office) }
     let(:office_without_review) { build(:office, id: 2) }
-    let(:sale_count) { SaleCount.create(id: 1) }
-    let(:sale_reason) { SaleReason.create(id: 1) }
+    let(:sale_count) { SaleCount.find(1) }
+    let(:sale_reason) { SaleReason.find(1) }
     let(:city) { build(:city) }
     let(:review) { build(:review) }
 

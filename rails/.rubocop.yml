@@ -19,7 +19,7 @@ Rails:
 
 Style/HashSyntax:
   Exclude:
-      - spec/models/*
+      - spec/**/*
       - lib/tasks/*
 
 Style/Documentation:
@@ -45,6 +45,9 @@ Metrics/BlockLength:
 Rails/BulkChangeTable:
   Enabled: false
 
+RSpec/MultipleExpectations:
+  Exclude:
+      - spec/features/*
 
 RSpec/ContextWording:
   Enabled: false
@@ -54,3 +57,7 @@ RSpec/NestedGroups:
 
 RSpec/MultipleMemoizedHelpers:
   Max: 20
+
+RSpec/ExampleLength:
+  Exclude:
+      - spec/features/*
