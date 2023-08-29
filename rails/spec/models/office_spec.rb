@@ -62,39 +62,40 @@ RSpec.describe Office do
     let(:review) { build(:review) }
 
     before do
-      reviews = create_list(:review, 3, office: office, city: city, sale_count: sale_count, sale_reason: sale_reason, improvement_point: 'あいうえお')
+      create_list(:review, 3, office: office, city: city, sale_count: sale_count, sale_reason: sale_reason,
+                              improvement_point: 'あいうえお')
     end
 
     context '売却スピードの満足度, 対応満足度, 売却価格の満足度全て' do
       it {
-        expect(office.calculate_review_mean()).to eq(11.0/3)
+        expect(office.calculate_review_mean).to eq(11.0 / 3)
       }
     end
 
     context '売却スピードの満足度のみ' do
       it {
         expect(office.calculate_review_mean(
-          include_response: false,
-          include_price: false
-        )).to eq(4.0)
+                 include_response: false,
+                 include_price: false
+               )).to eq(4.0)
       }
     end
 
     context '対応満足度のみ' do
       it {
         expect(office.calculate_review_mean(
-          include_speed: false,
-          include_price: false
-        )).to eq(5.0)
+                 include_speed: false,
+                 include_price: false
+               )).to eq(5.0)
       }
     end
 
     context '売却価格の満足度のみ' do
       it {
         expect(office.calculate_review_mean(
-          include_speed: false,
-          include_response: false
-        )).to eq(2.0)
+                 include_speed: false,
+                 include_response: false
+               )).to eq(2.0)
       }
     end
   end

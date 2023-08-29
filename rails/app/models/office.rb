@@ -20,7 +20,7 @@ class Office < ApplicationRecord
 
     reviews = Review.where(office: self)
 
-    if reviews.length == 0
+    if reviews.empty?
       # TODO: errorを出すほどではないと思うので、warningを出しつつ0を返したかった
       #       warningの出し方がわからなかったので0を返すだけになっています
       # raise RuntimeError, 'この店舗にはまだ口コミが存在しません！'
@@ -34,30 +34,18 @@ class Office < ApplicationRecord
 
     sum = 0.0
     reviews.each do |review|
-      if include_speed
-        sum += review.sale_speed_evaluation
-      end
-      if include_response
-        sum += review.company_response_evaluation
-      end
-      if include_price
-        sum += review.sale_price_evaluation
-      end
+      sum += review.sale_speed_evaluation if include_speed
+      sum += review.company_response_evaluation if include_response
+      sum += review.sale_price_evaluation if include_price
     end
 
     sum /= reviews.length
 
     num_of_points = 0
-    if include_speed
-      num_of_points += 1
-    end
-    if include_response
-      num_of_points += 1
-    end
-    if include_price
-      num_of_points += 1
-    end
+    num_of_points += 1 if include_speed
+    num_of_points += 1 if include_response
+    num_of_points += 1 if include_price
 
-    return sum / num_of_points
+    sum / num_of_points
   end
 end
