@@ -5,6 +5,7 @@ class Office < ApplicationRecord
   belongs_to :prefecture
   belongs_to :city
   has_many :assessment_areas, dependent: :destroy
+  has_many :reviews, dependent: :destroy
 
   validates :ieul_office_id, presence: true, uniqueness: true
   validates :logo_url, presence: true
@@ -17,8 +18,6 @@ class Office < ApplicationRecord
     # include_speed, include_response, include_priceはそれぞれ、売却スピードの満足度、対応満足度、売却価格の満足度を
     # 計算に含めるかどうかを指定する
     # 3つともfalseにするとエラーが出るようにしてあります
-
-    reviews = Review.where(office: self)
 
     if reviews.empty?
       # TODO: errorを出すほどではないと思うので、warningを出しつつ0を返したかった
