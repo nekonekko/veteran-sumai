@@ -1,35 +1,35 @@
 <article>
-    <h2 class="text-white bg-blue-700 px-3 text-lg"><%= "#{@office.company.name} #{@office.name}" %>について</h2>
+    <h2 class="text-white bg-blue-700 px-3 text-lg"><%= "#{office.company.name} #{office.name}" %>について</h2>
     <section class="flex flex-row flex-wrap mt-5">
-        <%= image_tag @office.logo_url, class: "h-52 basis-full lg:basis-1/4 object-contain mb-3 lg:mb-0" %>
+        <%= image_tag office.logo_url, class: "h-52 basis-full lg:basis-1/4 object-contain mb-3 lg:mb-0" %>
         <table class="text-left">
         <tr>
             <th scope="row" class="px-2 py-0.5 whitespace-nowrap">店舗名</th>
-            <td class="px-2 py-0.5"><%= "#{@office.company.name} #{@office.name}" %></td>
+            <td class="px-2 py-0.5"><%= "#{office.company.name} #{office.name}" %></td>
         </tr>
         <tr>
             <th scope="row" class="px-2 py-0.5 whitespace-nowrap">郵便番号</th>
-            <td class="px-2 py-0.5"><%= @office.postal_code %></td>
+            <td class="px-2 py-0.5"><%= office.postal_code %></td>
         </tr>
         <tr>
             <th scope="row" class="px-2 py-0.5 whitespace-nowrap">住所</th>
-            <td class="px-2 py-0.5"><%= @office.address %></td>
+            <td class="px-2 py-0.5"><%= office.address %></td>
         </tr>
         <tr>
             <th scope="row" class="px-2 py-0.5 whitespace-nowrap">電話番号</th>
-            <td class="px-2 py-0.5"><%= @office.phone_number %></td>
+            <td class="px-2 py-0.5"><%= office.phone_number %></td>
         </tr>
         <tr>
             <th scope="row" class="px-2 py-0.5 whitespace-nowrap">FAX</th>
-            <td class="px-2 py-0.5"><%= @office.fax_number %></td>
+            <td class="px-2 py-0.5"><%= office.fax_number %></td>
         </tr>
         <tr>
             <th scope="row" class="px-2 py-0.5 whitespace-nowrap">営業時間</th>
-            <td class="px-2 py-0.5"><%= @office.business_hours %></td>
+            <td class="px-2 py-0.5"><%= office.business_hours %></td>
         </tr>
         <tr>
             <th scope="row" class="px-2 py-0.5 whitespace-nowrap">定休日</th>
-            <td class="px-2 py-0.5"><%= @office.holiday %></td>
+            <td class="px-2 py-0.5"><%= office.holiday %></td>
         </tr>
         </table>
     </section>
