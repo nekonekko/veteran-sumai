@@ -2,7 +2,16 @@
   <%= stylesheet_link_tag "color_stars", "data-turbo-track": "reload" %>
 <% end %>
 <section>
-  <h1 class="text-xl sm:text-2xl md:text-4xl text-center mb-20"><%= @review.headline %></h1>
+  <h1 class="text-xl sm:text-2xl md:text-4xl text-center"><%= @review.headline %></h1>
 </section>
+<nav class="mt-10 mb-10">
+  <%= link_to 'TOP', root_url, { class: 'text-cyan-500 underline text-sm md:text-base' } %>
+  ＞
+  <%= link_to prefecture_and_city_name(@review.office.city), prefecture_city_path(@review.office.city.prefecture.id, @review.office.city.id), { class: 'text-cyan-500 underline text-sm md:text-base' } %>
+  ＞
+  <%= link_to company_and_office_name(@review.office), office_path(@review.office), { class: 'text-cyan-500 underline text-sm md:text-base' } %>
+  ＞
+  <span class="text-sm md:text-base"><%= @review.headline %></span>
+</nav>
 <%= render partial: 'about_review', locals: { review: @review } %>
 <%= render partial: 'about_office', locals: { review: @review } %>
