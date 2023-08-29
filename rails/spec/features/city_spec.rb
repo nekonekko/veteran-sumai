@@ -3,8 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe 'cities/show' do
-  let!(:prefecture) { create(:prefecture) }
-  let!(:cities) { create_list(:city, 20, prefecture: prefecture) }
+  let!(:prefecture) { create(:prefecture, name: '北海道') }
+  let!(:cities) { create_list(:city, 20, prefecture: prefecture, name: '札幌市') }
 
   it 'render correct city page' do
     visit prefecture_city_path(prefecture.id, cities.first.id)
