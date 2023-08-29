@@ -1,0 +1,7 @@
+<article class="mt-5">
+  <section class="flex flex-col gap-4 pt-5">
+    <% offices.each do |office| %>
+      <%= render partial: 'office_item', locals: { office: office } %>
+    <% end %>
+  </section>
+</article>
