@@ -1,37 +1,39 @@
-<article class="p-5 border border-slate-400">
-  <article class="flex flex-col lg:flex-row">
-    <div class="lg:basis-60">
-      <%= company_and_office_name(office) %>
-      <span class="flex items-center gap-2"><%= office.calculate_review_mean.round(1) %>
-        <span
-            class="stars"
-            style="--rating: <%= office.calculate_review_mean %>; --star-size: 15px;"
-            aria-label="Rating of this product is <%= office.calculate_review_mean.round(1) %> out of 5."></span>
-      </span>
-    </div>
-      <table class="text-left">
-        <tr>
-            <th scope="row" class="pr-2 py-0.5 whitespace-nowrap font-normal">営業時間</th>
-            <td class="pl-2 py-0.5"><%= office.business_hours %></td>
-        </tr>
-        <tr>
-            <th scope="row" class="pr-2 py-0.5 whitespace-nowrap font-normal">定休日</th>
-            <td class="pl-2 py-0.5"><%= office.holiday %></td>
-        </tr>
-        <tr>
-            <th scope="row" class="pr-2 py-0.5 whitespace-nowrap font-normal">住所</th>
-            <td class="pl-2 py-0.5"><%= office_fulladdress(office) %></td>
-        </tr>
-      </table>
+<%= link_to office_path(office) do %>
+  <article class="p-5 border border-slate-400">
+    <article class="flex flex-col lg:flex-row">
+      <div class="lg:basis-60">
+        <%= company_and_office_name(office) %>
+        <span class="flex items-center gap-2"><%= office.calculate_review_mean.round(1) %>
+          <span
+              class="stars"
+              style="--rating: <%= office.calculate_review_mean %>; --star-size: 15px;"
+              aria-label="Rating of this product is <%= office.calculate_review_mean.round(1) %> out of 5."></span>
+        </span>
+      </div>
+        <table class="text-left">
+          <tr>
+              <th scope="row" class="pr-2 py-0.5 whitespace-nowrap font-normal">営業時間</th>
+              <td class="pl-2 py-0.5"><%= office.business_hours %></td>
+          </tr>
+          <tr>
+              <th scope="row" class="pr-2 py-0.5 whitespace-nowrap font-normal">定休日</th>
+              <td class="pl-2 py-0.5"><%= office.holiday %></td>
+          </tr>
+          <tr>
+              <th scope="row" class="pr-2 py-0.5 whitespace-nowrap font-normal">住所</th>
+              <td class="pl-2 py-0.5"><%= office_fulladdress(office) %></td>
+          </tr>
+        </table>
+    </article>
+    <% if office.reviews.any? %>
+      <article>
+        <span>会社の決め手：</span>
+        <p><%= office.reviews.last.choose_agent_reaseon %></p>
+      </article>
+    <% else %>
+      <article>
+        この会社にはまだ口コミがありません
+      </article>
+    <% end %>
   </article>
-  <% if office.reviews.any? %>
-    <article>
-      <span>会社の決め手：</span>
-      <p><%= office.reviews.last.choose_agent_reaseon %></p>
-    </article>
-  <% else %>
-    <article>
-      この会社にはまだ口コミがありません
-    </article>
-  <% end %>
-</article>
+<% end %>
