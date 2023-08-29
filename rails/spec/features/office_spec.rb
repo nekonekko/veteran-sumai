@@ -22,6 +22,6 @@ RSpec.describe 'offices/show' do
       expect(page).to have_selector('h2', text: 'SPeee不動産 赤坂店について')
       expect(page).to have_selector('h2', text: 'SPeee不動産 赤坂店で売却した人の口コミ')
       expect(page).to have_selector('h3', text: '港区：担当者の対応が良かったです。')
-      expect(page.all('span.stars').count).to eq 3 + 1
+      expect(page.all('article.review-item').count).to eq 3
   end
 end
