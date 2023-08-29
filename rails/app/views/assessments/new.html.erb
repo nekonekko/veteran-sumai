@@ -43,12 +43,12 @@
 
             <p>物件種別</p>
             <span class='col-span-2'>
-            <%= form.radio_button :property_type, :one %>
-            <%= form.label :property_type, "分譲マンション", {value: :one, style: "display: inline-block;"} %>
-            <%= form.radio_button :property_type, :two %>
-            <%= form.label :property_type, "一戸建て", {value: :two, style: "display: inline-block;"} %>
-            <%= form.radio_button :property_type, :three %>
-            <%= form.label :property_type, "土地", {value: :three, style: "display: inline-block;"} %>
+            <%= form.radio_button :property_type, :"1" %>
+            <%= form.label :property_type, "分譲マンション", {value: :"1", style: "display: inline-block;"} %>
+            <%= form.radio_button :property_type, :"2" %>
+            <%= form.label :property_type, "一戸建て", {value: :"2", style: "display: inline-block;"} %>
+            <%= form.radio_button :property_type, :"3" %>
+            <%= form.label :property_type, "土地", {value: :"3", style: "display: inline-block;"} %>
             </span>
 
             <%= form.label :property_exclusive_area, "専有面積"%>
