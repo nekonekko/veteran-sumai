@@ -12,8 +12,10 @@
         <p class="mb-5"><strong>不動産会社の対応満足度：</strong>★<%= review.company_response_evaluation%><br><%=review.company_response_evaluation_reason %></p>
 
         <p class="mb-5"><strong>今後売却する人へのアドバイス</strong><br><%= review.advice %></p>
-
-        <p class="mb-5"><strong>不動産会社に改善してほしい点</strong><br><%= review.improvement_point %></p>
+        
+        <% if !review.improvement_point.nil? %>
+            <p class="mb-5"><strong>不動産会社に改善してほしい点</strong><br><%= review.improvement_point %></p>
+        <% end %>
 
         <p><strong>売却時期と価格について</strong></p>
         <table class="w-full border mb-10">
