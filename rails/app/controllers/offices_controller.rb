@@ -9,6 +9,6 @@ class OfficesController < ApplicationController
     @speed_evaluation_mean = @office.calculate_review_mean(response: false, price: false)
     @response_evaluation_mean = @office.calculate_review_mean(speed: false, price: false)
     @price_evaluation_mean = @office.calculate_review_mean(speed: false, response: false)
-    @total_evaluation_mean = @office.calculate_review_mean()
+    @total_evaluation_mean = @office.calculate_review_mean
   end
 end
