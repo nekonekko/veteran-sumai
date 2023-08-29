@@ -76,7 +76,7 @@ RSpec.describe Office do
     context '売却スピードの満足度のみ' do
       it {
         expect(office.calculate_review_mean(
-                 include_response: false, include_price: false
+                 response: false, price: false
                )).to eq(4.0)
       }
     end
@@ -84,7 +84,7 @@ RSpec.describe Office do
     context '対応満足度のみ' do
       it {
         expect(office.calculate_review_mean(
-                 include_speed: false, include_price: false
+                 speed: false, price: false
                )).to eq(5.0)
       }
     end
@@ -92,7 +92,7 @@ RSpec.describe Office do
     context '売却価格の満足度のみ' do
       it {
         expect(office.calculate_review_mean(
-                 include_speed: false, include_response: false
+                 speed: false, response: false
                )).to eq(2.0)
       }
     end
@@ -106,7 +106,7 @@ RSpec.describe Office do
     context '引数が全てfalseの場合' do
       it {
         expect do
-          office.calculate_review_mean(include_speed: false, include_response: false, include_price: false)
+          office.calculate_review_mean(speed: false, response: false, price: false)
         end.to(raise_error ArgumentError)
       }
     end
