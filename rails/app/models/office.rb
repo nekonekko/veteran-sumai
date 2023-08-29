@@ -12,13 +12,13 @@ class Office < ApplicationRecord
   validates :catch_copy, presence: true
   validates :introduction, presence: true
 
-  def calculate_review_mean(office, include_speed: true, include_response: true, include_price: true)
+  def calculate_review_mean(include_speed: true, include_response: true, include_price: true)
     # officeの店舗の口コミの満足度の平均値を計算する
     # include_speed, include_response, include_priceはそれぞれ、売却スピードの満足度、対応満足度、売却価格の満足度を
     # 計算に含めるかどうかを指定する
     # 3つともfalseにするとエラーが出るようにしてあります
 
-    reviews = Review.where(office: office)
+    reviews = Review.where(office: self)
 
     if reviews.length == 0
       raise RuntimeError, 'この店舗にはまだ口コミが存在しません！'
