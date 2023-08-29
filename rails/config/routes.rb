@@ -3,7 +3,9 @@
 Rails.application.routes.draw do
   root 'top#index'
   resources :offices, only: [:show]
-  get 'prefectures/:prefecture_id/cities/:city_id', to: 'cities#show', as: :city
+  resources :prefectures, only: [] do
+    resources :cities, only: [:show]
+  end
   get 'assessment', to: 'assessment#show'
   resources :reviews, only: [:show]
 
