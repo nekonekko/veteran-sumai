@@ -6,9 +6,9 @@
   <nav class="mt-3">
     <%= link_to 'TOP', root_url, { class: 'text-cyan-500 underline text-sm md:text-base' } %>
     ＞
-    <%= link_to "#{@office.city.prefecture.name}#{@office.city.name}", city_path(@office.city.prefecture.id, @office.city.id), { class: 'text-cyan-500 underline text-sm md:text-base' } %>
+    <%= link_to prefecture_and_city_name(@office.city), city_path(@office.city.prefecture.id, @office.city.id), { class: 'text-cyan-500 underline text-sm md:text-base' } %>
     ＞
-    <span class="text-sm md:text-base"><%= "#{@office.company.name} #{@office.name}" %></span>
+    <span class="text-sm md:text-base"><%= company_and_office_name(@office) %></span>
   </nav>
   <% # ↓のdivタグ以下のタグ構成について悩んでいます。とりあえずdivでchartとキャッチコピー&紹介文を囲みましたが、他にいい方法があれば教えて欲しいです %>
   <div class="mb-10 md:mb-0 mt-10 md:gap-10 flex flex-row flex-wrap md:flex-nowrap justify-center">
