@@ -22,27 +22,27 @@
             <tbody>
                 <tr class="border-b">
                     <td class="p-2">売却検討</td>
-                    <td class="p-2"><%=review_date(review.considered_sale_on)%></td>
+                    <td class="p-2"><%=review.considered_sale_on.strftime("%Y年 %m月")%></td>
                     <td class="p-2"></td>
                 </tr>
                 <tr class="border-b">
                     <td class="p-2">査定依頼時期 / 価格</td>
-                    <td class="p-2"><%=review_date(review.assessment_requested_on)%></td>
+                    <td class="p-2"><%=review.assessment_requested_on.strftime("%Y年 %m月")%></td>
                     <td class="p-2"><%=review.assessed_price%>円</td>
                 </tr>
                 <tr class="border-b">
                     <td class="p-2">売出時期 / 価格</td>
-                    <td class="p-2"><%=review_date(review.started_selling_on)%></td>
+                    <td class="p-2"><%=review.started_selling_on.strftime("%Y年 %m月")%></td>
                     <td class="p-2"><%=review.sale_price%>円</td>
                 </tr>
                 <tr class="border-b">
                     <td class="p-2">売却時期 / 価格</td>
-                    <td class="p-2"><%=review_date(review.sold_on)%></td>
+                    <td class="p-2"><%=review.sold_on.strftime("%Y年 %m月")%></td>
                     <td class="p-2"><%=review.contract_price%>円</td>
                 </tr>
                 <tr>
                     <td class="p-2">引き渡し時期</td>
-                    <td class="p-2"><%=review_date(review.transfered_on)%></td>
+                    <td class="p-2"><%=review.transfered_on.strftime("%Y年 %m月")%></td>
                     <td class="p-2"></td>
                 </tr>
             </tbody>

@@ -12,8 +12,4 @@ module ReviewsHelper
   def review_address(review)
     "#{review.city.prefecture.name}/#{review.city.name}"
   end
-
-  def review_date(date)
-    "#{date.year}年#{date.month}月"
-  end
 end
