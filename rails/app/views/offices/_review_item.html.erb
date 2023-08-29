@@ -25,6 +25,6 @@
                 <% end %>
             </span>
         </span>
-        <span class="mt-2 lg:mt-0">(京都府京都市・2002年10月に売却)</span>
+        <span class="mt-2 lg:mt-0">(<%= "#{review.city.prefecture.name}#{review.city.name}" %>・<%= review.sold_on.year %>年<%= review.sold_on.month %>月に売却)</span>
     </div>
 </article>
