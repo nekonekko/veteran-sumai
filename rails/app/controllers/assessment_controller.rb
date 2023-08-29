@@ -3,7 +3,7 @@
 class AssessmentController < ApplicationController
   def show
     if params[:office_id].nil?
-      redirect_to '/'
+      redirect_to root_path
 
     else
       office_id = params[:office_id]
