@@ -9,7 +9,6 @@
 
 <%= form_with model: @assessment_request ,url: assessments_path, method: :post do |form|%>
     <%= form.hidden_field :office_id, value: @assessment_request.office_id %>
-
     <section>
         <h2 class="bg-blue-400 text-white my-5 px-3">あなたの情報</h2>
 
