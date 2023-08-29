@@ -3,15 +3,18 @@
 require 'rails_helper'
 
 RSpec.describe 'offices/show' do
-  let!(:company) { create(:company) }
-  let!(:office) { create(:office, company: company) }
+  let!(:company) { create(:company, name: 'SPeee不動産') }
+  let!(:office) { create(:office,
+                          company: company,
+                          name: '赤坂店',
+                          catch_copy: '不動産の売却はSpeee1不動産にお任せください') }
   let!(:sale_count) { SaleCount.create(id: 1) }
   let!(:sale_reason) { SaleReason.create(id: 1) }
-  let!(:prefecture) { create(:prefecture) }
-  let!(:city) { create(:city, prefecture: prefecture) }
+  let!(:prefecture) { create(:prefecture, name: '北海道') }
+  let!(:city) { create(:city, prefecture: prefecture, name: '札幌市') }
 
   before do
-    create_list(:review, 3, office: office, city: city, sale_count: sale_count, sale_reason: sale_reason,
+    create_list(:review, 3, office: office, city: city, headline: '港区：担当者の対応が良かったです。', sale_count: sale_count, sale_reason: sale_reason,
                             improvement_point: 'あいうえお')
   end
 
