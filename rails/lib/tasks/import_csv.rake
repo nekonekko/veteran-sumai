@@ -112,7 +112,7 @@ namespace :import_csv do # rubocop:disable Metrics/BlockLength
           office = Office.find(office_id)
 
           city_ids.each do |city_id|
-            office.assessment_areas.create!(city_id:)
+            office.assessment_areas.create!(city_id: city_id)
           end
         end
       end
