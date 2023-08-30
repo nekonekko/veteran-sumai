@@ -3,11 +3,11 @@
   <h1 class="text-xl sm:text-2xl md:text-4xl text-center">ベテランすまい</h1>
   <div class="m-10 mb-20">
     <p class="text-center text-base sm:text-xl">不動産会社の口コミが見れる！</p>
-    <p class="text-center">調べたい市区町村をクリックしてください</p>
+    <p class="text-center">調べたい地域をクリックしてください</p>
   </div>
 </article>
 <article>
-  <h2 class="text-base px-3 lg:px-10 py-2 lg:text-lg border-2 border-cyan-500 bg-cyan-500 text-white">都道府県一覧</h2>
+  <h2 class="text-base px-3 lg:px-10 py-2 lg:text-lg border-2 border-blue-400 bg-blue-400 text-white">都道府県一覧</h2>
   <ul class="grid grid-cols-2 text-sm sm:grid-cols-3 lg:grid-cols-4 lg:text-lg p-3 lg:p-10">
     <% @prefectures.each do |prefecture| %>
       <%= link_to "#prefecture-#{prefecture.id}" do %>
