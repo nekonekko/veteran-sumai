@@ -6,6 +6,7 @@ RSpec.describe 'assessment/new' do
   let!(:company) { create(:company, name: 'SPeee不動産') }
   let!(:office) { create(:office, company: company, name: '赤坂店') }
   let!(:city) { create(:city, name: '港区') }
+  let!(:assessment_area) { create(:assessment_area, office: office, city: city) }
 
   it '査定依頼ページの入力、画面遷移（マンション）' do
     visit new_assessment_path(office_id: office.id)

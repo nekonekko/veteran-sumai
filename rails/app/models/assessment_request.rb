@@ -24,9 +24,9 @@ class AssessmentRequest < ApplicationRecord
   validates :user_tel, format: { with: /(\A0\d{9}\z)|(\A0\d{10}\z)/ }
 
   def city_in_office_assessment_areas
-    unless office.assessment_areas.map {|assessment_area| assessment_area.city}.include?(city)
-      errors.add(:city, "is not included in the list")
-    end
+    return if office.assessment_areas.map(&:city).include?(city)
+
+    errors.add(:city, 'is not included in the list')
   end
 
   def post_to_ieul!
