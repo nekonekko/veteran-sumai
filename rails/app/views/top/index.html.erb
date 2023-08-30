@@ -1,1 +1,10 @@
-Topページです
+<% @prefectures.each do |prefecture| %>
+<article>
+  <h2 class="text-base px-3 lg:px-10 py-2 lg:text-lg border-2"><%= prefecture.name %></h2>
+  <ul class="grid grid-cols-2 text-sm sm:grid-cols-3 lg:grid-cols-5 lg:text-base p-3 lg:p-10">
+    <% prefecture.cities.each do |city| %>
+      <li class="address-item whitespace-nowrap text-cyan-500 underline"><%= city.name %></li>
+    <% end %>
+  </ul>
+</article>
+<% end %>
