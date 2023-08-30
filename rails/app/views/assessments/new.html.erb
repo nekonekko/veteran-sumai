@@ -3,7 +3,9 @@
     <p class="text-center">フォームは全て必須入力です。</p>
 </section>
 
-<%= form_with model: @assessment_request do |form|%>
+<%= form_with model: @assessment_request ,url: assessments_path, method: :post do |form|%>
+    <%= form.hidden_field :office_id, value: @office_id%>
+    
     <section>
         <h2 class="bg-blue-400 text-white my-5 px-3">あなたの情報</h2>
 
@@ -28,9 +30,9 @@
     <section>
         <h2 class="bg-blue-400 text-white my-5 px-3">物件の情報</h2>
         <div class='grid grid-cols-3 gap-3 mb-3 xl:w-5/6 mx-auto'>
-            <%= form.label :city, "市区町村"%>
-            <%= form.select :city, options_for_select(
-                @available_cities
+            <%= form.label :city_id, "市区町村"%>
+            <%= form.select :city_id, options_for_select(
+                City.all.map{|city| [city.name, city.id]}
                 ), prompt: '市区町村を選択してください。', class: 'col-span-2' %>
         </div>
 
