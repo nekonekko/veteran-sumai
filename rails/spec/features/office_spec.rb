@@ -4,10 +4,12 @@ require 'rails_helper'
 
 RSpec.describe 'offices/show' do
   let!(:company) { create(:company, name: 'SPeee不動産') }
-  let!(:office) { create(:office,
-                          company: company,
-                          name: '赤坂店',
-                          catch_copy: '不動産の売却はSpeee1不動産にお任せください') }
+  let!(:office) do
+    create(:office,
+           company: company,
+           name: '赤坂店',
+           catch_copy: '不動産の売却はSpeee1不動産にお任せください')
+  end
   let!(:sale_count) { SaleCount.create(id: 1) }
   let!(:sale_reason) { SaleReason.create(id: 1) }
   let!(:prefecture) { create(:prefecture, name: '北海道') }
