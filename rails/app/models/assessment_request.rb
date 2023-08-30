@@ -24,7 +24,7 @@ class AssessmentRequest < ApplicationRecord
     http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
     req = Net::HTTP::Post.new(uri.path)
-    req.set_form_data(form_data)
+    req.set_form_data(form_params)
 
     response = http.start do
       http.request(req)
@@ -33,7 +33,7 @@ class AssessmentRequest < ApplicationRecord
     update!(success: response.is_a?(Net::HTTPOK))
   end
 
-  def form_data
+  def form_params
     {
       branch_id: office.ieul_office_id,
       property_city: city_id,
