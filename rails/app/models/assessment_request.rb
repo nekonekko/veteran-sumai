@@ -17,9 +17,17 @@ class AssessmentRequest < ApplicationRecord
   validates :property_land_area, :property_building_area, presence: true, if: -> { property_type == 2 }
   validates :property_land_area, presence: true, if: -> { property_type == 3 }
 
+  validate :city_in_office_assessment_areas
+
   # メールアドレス、電話番号のバリデーション
   validates :user_email, length: { maximum: 100 }, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }
   validates :user_tel, format: { with: /(\A0\d{9}\z)|(\A0\d{10}\z)/ }
+
+  def city_in_office_assessment_areas
+    return if office.assessment_areas.map(&:city).include?(city)
+
+    errors.add(:city, 'is not included in the list')
+  end
 
   def post_to_ieul!
     uri = URI.parse('https://miniul-api.herokuapp.com/affiliate/v2/conversions')

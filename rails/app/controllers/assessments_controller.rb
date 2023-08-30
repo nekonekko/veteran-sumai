@@ -13,9 +13,7 @@ class AssessmentsController < ApplicationController
   end
 
   def create
-    Rails.logger.debug assessment_request_params
     assessment_request = AssessmentRequest.new(assessment_request_params)
-    Rails.logger.debug params[:office_id]
     if assessment_request.valid?
       assessment_request.save!
       assessment_request.post_to_ieul!
