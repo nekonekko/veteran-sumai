@@ -1,8 +1,8 @@
 <%= link_to office_path(office) do %>
-  <article class="p-5 border border-slate-400">
+  <article class="office-item p-5 border border-slate-400">
     <article class="flex flex-col lg:flex-row">
       <div class="lg:basis-60">
-        <%= company_and_office_name(office) %>
+        <h2><%= company_and_office_name(office) %></h2>
         <span class="flex items-center gap-2"><%= office.calculate_review_mean.round(1) %>
           <span
               class="stars"
