@@ -16,7 +16,7 @@ class CreateAssessmentRequests < ActiveRecord::Migration[7.0]
       t.string :user_name, null: false
       t.string :user_name_kana, null: false
       t.string :user_tel, null: false
-      t.boolean :api_failure, default: false
+      t.boolean :success, default: false
       t.timestamps
     end
   end
