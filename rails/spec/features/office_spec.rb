@@ -16,8 +16,14 @@ RSpec.describe 'offices/show' do
   let!(:city) { create(:city, prefecture: prefecture, name: '札幌市') }
 
   before do
-    create_list(:review, 3, office: office, city: city, headline: '港区：担当者の対応が良かったです。', sale_count: sale_count, sale_reason: sale_reason,
-                            improvement_point: 'あいうえお')
+    create_list(:review,
+                3,
+                office: office,
+                city: city,
+                headline: '港区：担当者の対応が良かったです。',
+                sale_count: sale_count,
+                sale_reason: sale_reason,
+                improvement_point: 'あいうえお')
   end
 
   it 'render correct office page' do
