@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe Company do
   describe '#valid?' do
-    let(:company) { build(:company, name:, ieul_company_id:) }
+    let(:company) { build(:company, name: name, ieul_company_id: ieul_company_id) }
 
     context 'name,ieul_company_idが存在する場合' do
       let(:name) { 'Speee不動産' }

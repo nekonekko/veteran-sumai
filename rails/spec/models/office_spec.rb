@@ -63,7 +63,7 @@ RSpec.describe Office do
     let(:review) { build(:review) }
 
     before do
-      create_list(:review, 3, office:, city:, sale_count:, sale_reason:,
+      create_list(:review, 3, office: office, city: city, sale_count: sale_count, sale_reason: sale_reason,
                               improvement_point: 'あいうえお')
     end
 
