@@ -9,10 +9,14 @@ class AssessmentRequest < ApplicationRecord
   belongs_to :city
 
   # 空チェック
-  validates :property_address, :property_type, :property_exclusive_area, :property_land_area,
-            :property_building_area,
+  validates :property_address, :property_type,
             :property_room_plan, :property_constructed_year, :user_email, :user_name, :user_name_kana,
             :user_tel, presence: true
+  # 物件種別に応じた面積入力のバリデーション
+  validates :property_exclusive_area, presence: true, if -> {property_type == 1}
+  validates :property_land_area, :property_building_area, if ->  {property_type == 2}
+  validates :property_land_area,, if -> {property_type == 3}
+
   # メールアドレス、電話番号のバリデーション
   validates :user_email, length: { maximum: 100 }, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }
   validates :user_tel, format: { with: /(\A0\d{9}\z)|(\A0\d{10}\z)/ }
