@@ -28,6 +28,7 @@ RSpec.describe 'offices/show' do
 
   it 'render correct office page' do
     visit office_path(office)
+    expect(page).to have_title 'SPeee不動産 赤坂店 | ベテランすまい'
     expect(page).to have_link 'TOP'
     expect(page).to have_link '北海道 札幌市'
     expect(page).to have_selector('h1', text: 'SPeee不動産 赤坂店')

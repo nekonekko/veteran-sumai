@@ -1,11 +1,15 @@
-<section class="grid gap-3">
+<% content_for :title, full_title("査定 | #{company_and_office_name(@office)}") %>
+<section class="grid gap-5">
     <h1 class="text-center text-xl sm:text-2xl md:text-4xl">査定依頼フォーム</h1>
-    <p class="text-center">フォームは全て必須入力です。</p>
+    <span>
+        <p class="text-center"><%= company_and_office_name(@office) %>に査定依頼を送信します</p>
+        <p class="text-center">フォームは全て必須入力です。</p>
+    </span>
 </section>
 
 <%= form_with model: @assessment_request ,url: assessments_path, method: :post do |form|%>
     <%= form.hidden_field :office_id, value: @assessment_request.office_id %>
-    
+
     <section>
         <h2 class="bg-blue-400 text-white my-5 px-3">あなたの情報</h2>
 

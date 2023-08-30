@@ -25,7 +25,7 @@ FactoryBot.define do
     contract_price { 17_000_000 }
     sale_price_evaluation { 2 }
     mediation_contract_form_id { 2 }
-    headline { '港区：担当者の対応が良かったです。 ' }
+    headline { '港区：担当者の対応が良かったです。' }
     sale_reason_id { 5 }
     sale_anxiety_reason { '港区品川：山路（やまみち）を登りながら、こう考えた' }
     choose_agent_reaseon do

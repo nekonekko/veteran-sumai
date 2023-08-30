@@ -1,5 +1,9 @@
+<% content_for :title, full_title(company_and_office_name(@office)) %>
 <% content_for :head_tag do %>
   <%= stylesheet_link_tag "color_stars", "data-turbo-track": "reload" %>
+  <% if @office.reviews.empty? %>
+    <meta name="robots" content="noindex">
+  <% end %>
 <% end %>
 <section>
   <h1 class="text-xl sm:text-2xl md:text-4xl text-center"><%= company_and_office_name(@office) %></h1>

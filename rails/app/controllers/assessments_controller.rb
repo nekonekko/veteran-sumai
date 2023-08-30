@@ -9,6 +9,7 @@ class AssessmentsController < ApplicationController
     end
 
     @assessment_request = AssessmentRequest.new(office_id: params[:office_id])
+    @office = Office.find(params[:office_id])
   end
 
   def create

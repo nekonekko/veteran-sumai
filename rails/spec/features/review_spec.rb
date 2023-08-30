@@ -46,12 +46,14 @@ RSpec.describe 'reviews/show' do
     create(
       :review,
       office: office,
+      headline: '港区：担当者の対応が良かったです。',
       sale_anxiety_reason: '港区品川：山路（やまみち）を登りながら、こう考えた'
     )
   end
 
   it 'correct reviewpage' do
     visit review_path(review)
+    expect(page).to have_title '港区：担当者の対応が良かったです。 | ベテランすまい'
     expect(page).to have_link 'TOP'
     expect(page).to have_link '北海道 札幌市'
     expect(page).to have_link 'Speee不動産 赤坂店'
