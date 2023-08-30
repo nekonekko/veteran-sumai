@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe City do
   describe '#valid?' do
-    let(:city) { build(:city, name: name, yomi: yomi) }
+    let(:city) { build(:city, name:, yomi:) }
 
     context 'name,yomiが入力されている場合' do
       let(:name) { '札幌市' }

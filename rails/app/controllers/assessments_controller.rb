@@ -17,9 +17,9 @@ class AssessmentsController < ApplicationController
     assessment_request = AssessmentRequest.new(assessment_request_params)
     Rails.logger.debug params[:office_id]
     if assessment_request.valid?
-        assessment_request.save!
-        assessment_request.post_to_ieul!
-        redirect_to assessment_request.success? ? thanks_url : error_url
+      assessment_request.save!
+      assessment_request.post_to_ieul!
+      redirect_to assessment_request.success? ? thanks_url : error_url
     else
       flash[:alert] = assessment_request.errors.full_messages
       redirect_to new_assessment_url(office_id: assessment_request.office_id)
@@ -47,9 +47,7 @@ class AssessmentsController < ApplicationController
           )
   end
 
-  def thanks
-  end
+  def thanks; end
 
-  def error
-  end
+  def error; end
 end

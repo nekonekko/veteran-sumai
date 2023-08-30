@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe Prefecture do
   describe '#valid?' do
-    let(:prefecture) { build(:prefecture, name: name) }
+    let(:prefecture) { build(:prefecture, name:) }
 
     context 'nameが存在する場合' do
       let(:name) { '北海道' }
