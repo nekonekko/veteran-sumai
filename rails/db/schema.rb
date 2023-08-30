@@ -35,6 +35,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_23_044232) do
     t.string "user_name", null: false
     t.string "user_name_kana", null: false
     t.string "user_tel", null: false
+    t.boolean "api_failure", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["city_id"], name: "index_assessment_requests_on_city_id"
