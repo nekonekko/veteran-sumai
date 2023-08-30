@@ -43,12 +43,19 @@
 
             <p>物件種別</p>
             <span class='col-span-2'>
+<<<<<<< HEAD
             <%= form.radio_button :property_type, :"1" %>
             <%= form.label :property_type, "分譲マンション", {value: :"1", style: "display: inline-block;"} %>
             <%= form.radio_button :property_type, :"2" %>
             <%= form.label :property_type, "一戸建て", {value: :"2", style: "display: inline-block;"} %>
             <%= form.radio_button :property_type, :"3" %>
             <%= form.label :property_type, "土地", {value: :"3", style: "display: inline-block;"} %>
+=======
+            <% PropertyType.all.each do |property_type| %>
+              <%= form.radio_button :property_type, property_type.id %>
+              <%= form.label :property_type, property_type.name, value: property_type.id, style: 'display: inline-block;' %>
+            <% end %>
+>>>>>>> ee89b5c (建物種別に応じたバリデーションをつけた。)
             </span>
 
             <%= form.label :property_exclusive_area, "専有面積"%>
