@@ -33,7 +33,7 @@
         <div class='grid grid-cols-3 gap-3 mb-3 xl:w-5/6 mx-auto'>
             <%= form.label :city_id, "市区町村"%>
             <%= form.select :city_id, options_for_select(
-                City.all.map{|city| [city.name, city.id]}
+                @office.assessment_areas.map{|assessment_area| [assessment_area.city.name, assessment_area.city.id]}
                 ), prompt: '市区町村を選択してください。', class: 'col-span-2' %>
         </div>
 
