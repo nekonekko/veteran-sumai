@@ -10,18 +10,18 @@
   <ul class="grid grid-cols-2 text-sm sm:grid-cols-3 lg:grid-cols-4 lg:text-lg p-3 lg:p-10">
     <% @prefectures.each do |prefecture| %>
       <%= link_to "#prefecture-#{prefecture.id}" do %>
-        <li class="whitespace-nowrap text-cyan-500 underline"><%= prefecture.name %></li>
+        <li class="prefecture-item whitespace-nowrap text-cyan-500 underline"><%= prefecture.name %></li>
       <% end %>
     <% end %>
   </ul>
 </article>
 <% @prefectures.each do |prefecture| %>
-  <article id="prefecture-<%= prefecture.id %>">
+  <article id="prefecture-<%= prefecture.id %>" class="prefecture-title">
     <h2 class="text-base px-3 lg:px-10 py-2 lg:text-lg border-2"><%= prefecture.name %></h2>
     <ul class="grid grid-cols-2 text-sm sm:grid-cols-3 lg:grid-cols-5 lg:text-base p-3 lg:p-10">
       <% prefecture.cities.each do |city| %>
         <%= link_to prefecture_city_path(city.prefecture.id, city.id) do %>
-          <li class="whitespace-nowrap text-cyan-500 underline"><%= city.name %></li>
+          <li class="city-item whitespace-nowrap text-cyan-500 underline"><%= city.name %></li>
         <% end %>
       <% end %>
     </ul>
