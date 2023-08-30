@@ -48,7 +48,7 @@ gem 'bootsnap', require: false
 
 gem 'rubyzip'
 
-gem "rails-i18n"
+gem 'rails-i18n'
 
 gem 'active_hash'
 # Use Sass to process CSS

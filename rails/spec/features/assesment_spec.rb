@@ -3,7 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe 'assessment/new' do
-
   it '査定依頼ページの入力、画面遷移' do
     visit new_assessment_path(office_id: 1)
     click_button '査定依頼をする'
@@ -24,6 +23,6 @@ RSpec.describe 'assessment/new' do
 
   it '査定依頼ページにoffice_idが入力されていない場合' do
     visit new_assessment_path
-    expect(current_path).to eq(root_path)
+    expect(page).to have_current_path(root_path, ignore_query: true)
   end
 end

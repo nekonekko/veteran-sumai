@@ -2,7 +2,7 @@
 
 class AssessmentsController < ApplicationController
   def new
-    puts params[:office_id]
+    Rails.logger.debug params[:office_id]
     if params[:office_id].nil?
       redirect_to root_url
       return
@@ -12,9 +12,9 @@ class AssessmentsController < ApplicationController
   end
 
   def create
-    puts assessment_request_params
+    Rails.logger.debug assessment_request_params
     assessment_request = AssessmentRequest.new(**assessment_request_params)
-    puts params[:office_id]
+    Rails.logger.debug params[:office_id]
     if assessment_request.valid?
       assessment_request.save!
       # redirect_to thank_page_path
@@ -31,17 +31,18 @@ class AssessmentsController < ApplicationController
     params.require(:assessment_request)
           .permit(
             :office_id,
-            :user_name, 
-                  :user_name_kana,
-                  :user_tel, 
-                  :user_email,
-                  :city_id,
-                  :property_address,
-                  :property_type,
-                  :property_exclusive_area,
-                  :property_land_area,
-                  :property_building_area,
-                  :property_room_plan, 
-                  :property_constructed_year)
+            :user_name,
+            :user_name_kana,
+            :user_tel,
+            :user_email,
+            :city_id,
+            :property_address,
+            :property_type,
+            :property_exclusive_area,
+            :property_land_area,
+            :property_building_area,
+            :property_room_plan,
+            :property_constructed_year
+          )
   end
 end

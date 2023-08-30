@@ -9,7 +9,6 @@ FactoryBot.define do
     property_exclusive_area { 100.0 }
     property_land_area { 100.0 }
     property_building_area { 100.0 }
-    url_param { 'example.com' }
     property_room_plan { 0 }
     property_constructed_year { 0 }
     user_email { 'test@example.com' }
