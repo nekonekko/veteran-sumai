@@ -9,7 +9,7 @@ RSpec.describe 'cities/show' do
   let!(:offices) { create_list(:office, 5, company: company, name: '赤坂店') }
 
   before do
-    for idx in 1..5 do
+    (1..5).each do |idx|
       AssessmentArea.create(
         office_id: offices[idx - 1].id,
         city_id: cities.first.id
