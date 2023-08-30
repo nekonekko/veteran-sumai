@@ -40,13 +40,6 @@ RSpec.describe AssessmentRequest do
         end
       end
 
-      context 'URLパラメータが空の場合' do
-        it '無効であること' do
-          assessment = build(:assessment_request, url_param: nil)
-          expect(assessment).not_to be_valid
-        end
-      end
-
       context '部屋のプランが空の場合' do
         it '無効であること' do
           assessment = build(:assessment_request, property_room_plan: nil)

@@ -3,20 +3,20 @@
     <p class="text-center">フォームは全て必須入力です。</p>
 </section>
 
-<%= form_with model: @assessment_request do |form|%>
+<%= form_with model: @assessment_request ,url: assessments_path, method: :post do |form|%>
+    <%= form.hidden_field :office_id, value: @assessment_request.office_id %>
+    
     <section>
         <h2 class="bg-blue-400 text-white my-5 px-3">あなたの情報</h2>
 
         <div class='grid grid-cols-3 gap-3 w-full xl:w-5/6 mx-auto'>
-        <%= form.label :custom_name_sei, "お名前"%>
+        <%= form.label :user_name, "お名前"%>
         <span class='col-span-2'>
-            <%= form.text_field :custom_name_sei %>
-            <%= form.text_field :custom_name_mei %>
+            <%= form.text_field :user_name %>
         </span>
-        <%= form.label :custom_kana_sei, "フリガナ"%>
+        <%= form.label :user_name_kana, "フリガナ"%>
         <span class='col-span-2'>
-            <%= form.text_field :custom_kana_sei %>
-            <%= form.text_field :custom_kana_mei %>
+            <%= form.text_field :user_name_kana %>
         </span>
         <%= form.label :user_tel, "電話番号"%>
         <%= form.text_field :user_tel, class: 'col-span-2'%>
@@ -28,9 +28,9 @@
     <section>
         <h2 class="bg-blue-400 text-white my-5 px-3">物件の情報</h2>
         <div class='grid grid-cols-3 gap-3 mb-3 xl:w-5/6 mx-auto'>
-            <%= form.label :city, "市区町村"%>
-            <%= form.select :city, options_for_select(
-                @available_cities
+            <%= form.label :city_id, "市区町村"%>
+            <%= form.select :city_id, options_for_select(
+                City.all.map{|city| [city.name, city.id]}
                 ), prompt: '市区町村を選択してください。', class: 'col-span-2' %>
         </div>
 
@@ -40,12 +40,12 @@
 
             <p>物件種別</p>
             <span class='col-span-2'>
-            <%= form.radio_button :property_address, :one %>
-            <%= form.label :property_address, "分譲マンション", {value: :one, style: "display: inline-block;"} %>
-            <%= form.radio_button :property_address, :two %>
-            <%= form.label :property_address, "一戸建て", {value: :two, style: "display: inline-block;"} %>
-            <%= form.radio_button :property_address, :three %>
-            <%= form.label :property_address, "土地", {value: :three, style: "display: inline-block;"} %>
+            <%= form.radio_button :property_type, :one %>
+            <%= form.label :property_type, "分譲マンション", {value: :one, style: "display: inline-block;"} %>
+            <%= form.radio_button :property_type, :two %>
+            <%= form.label :property_type, "一戸建て", {value: :two, style: "display: inline-block;"} %>
+            <%= form.radio_button :property_type, :three %>
+            <%= form.label :property_type, "土地", {value: :three, style: "display: inline-block;"} %>
             </span>
 
             <%= form.label :property_exclusive_area, "専有面積"%>
@@ -60,7 +60,7 @@
 
         <div class='grid grid-cols-3 gap-3 my-3 xl:w-5/6 mx-auto'>
             <%= form.label :property_room_plan, "間取り"%>
-            <%= form.select :room_type, options_for_select({
+            <%= form.select :property_room_plan, options_for_select({
                 '1R' => 1,
                 '1K / 1DK' => 2,
                 '1LK / 1LDK' => 3,
