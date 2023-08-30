@@ -1,5 +1,5 @@
 <article class="mt-5">
-  <h2 class="text-white bg-blue-700 px-3 text-lg"><%= company_and_office_name(@office) %>で売却した人の口コミ</h2>
+  <h2 class="text-white bg-blue-400 px-3 text-lg"><%= company_and_office_name(@office) %>で売却した人の口コミ</h2>
   <section class="flex flex-col gap-4 pt-5">
     <% reviews.each do |review| %>
       <%= render partial: 'review_item', locals: { review: review } %>
