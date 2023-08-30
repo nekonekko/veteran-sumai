@@ -61,6 +61,7 @@ RSpec/MultipleMemoizedHelpers:
 RSpec/ExampleLength:
   Exclude:
       - spec/features/*
+      - spec/models/*
 
 RSpec/LetSetup:
   Exclude:

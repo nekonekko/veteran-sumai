@@ -42,7 +42,6 @@ RSpec.describe 'assessment/new' do
     fill_in '建築年', with: '1990'
     click_button '査定依頼をする'
     expect(page).to have_current_path(thanks_path, ignore_query: true)
-
   end
 
   it '査定依頼ページの入力、画面遷移（戸建て）' do
