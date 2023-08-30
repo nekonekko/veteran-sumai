@@ -40,4 +40,7 @@
   </section>
   <%= render partial: 'about_office', locals: { office: @office } %>
   <%= render partial: 'review_list', locals: { reviews: @office.reviews } %>
+  <div class="text-center mt-10 mb-40">
+      <%= link_to '査定依頼をする', new_assessment_path(office_id: @office.id), class: 'text-xl bg-blue-400 text-white px-10 py-5 rounded-lg m-auto'%>
+  </div>
 </div>
