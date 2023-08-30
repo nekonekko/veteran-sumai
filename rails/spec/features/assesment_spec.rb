@@ -34,7 +34,7 @@ RSpec.describe 'assessment/new' do
     fill_in 'メールアドレス', with: 'john@example.com'
     select '港区', from: '市区町村'
     fill_in '市区町村以下', with: 'Some address'
-    choose '分譲マンション'
+    choose 'マンション'
     fill_in '専有面積', with: '100'
     fill_in '土地面積', with: '200'
     fill_in '建物面積', with: '300'
