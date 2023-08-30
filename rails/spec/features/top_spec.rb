@@ -12,6 +12,7 @@ RSpec.describe 'cities/show' do
 
   it 'render correct top page' do
     visit root_path
+    expect(page).to have_title 'ベテランすまい'
     expect(page.all('li.prefecture-item').count).to eq 47
     expect(page.all('article.prefecture-title').count).to eq 47
     expect(page.all('li.city-item').count).to eq 30
