@@ -23,6 +23,7 @@ RSpec.describe 'cities/show' do
     expect(page).to have_selector('h1', text: '北海道 札幌市の不動産会社')
     expect(page).to have_selector('h2', text: '北海道全域')
     expect(page.all('article.office-item').count).to eq 5
+    expect(page).to have_selector('h2', text: 'SPeee不動産 赤坂店')
     expect(page.all('li.address-item').count).to eq 20
     expect(page).to have_link '札幌市'
   end
