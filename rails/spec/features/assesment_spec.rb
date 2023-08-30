@@ -3,8 +3,11 @@
 require 'rails_helper'
 
 RSpec.describe 'assessment/new' do
+  let!(:company) { create(:company, name: "SPeee不動産") }
+  let!(:office) { create(:office, company: company, name: "赤坂店") }
+  
   it '査定依頼ページの入力、画面遷移' do
-    visit new_assessment_path(office_id: 1)
+    visit new_assessment_path(office_id: office.id)
     click_button '査定依頼をする'
     expect(page).to have_content('市区町村を入力してください')
     expect(page).to have_content('市区町村以下を入力してください')
