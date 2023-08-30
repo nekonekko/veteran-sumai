@@ -3,9 +3,9 @@
 require 'rails_helper'
 
 RSpec.describe 'assessment/new' do
-  let!(:company) { create(:company, name: "SPeee不動産") }
-  let!(:office) { create(:office, company: company, name: "赤坂店") }
-  
+  let!(:company) { create(:company, name: 'SPeee不動産') }
+  let!(:office) { create(:office, company: company, name: '赤坂店') }
+
   it '査定依頼ページの入力、画面遷移' do
     visit new_assessment_path(office_id: office.id)
     expect(page).to have_title '査定 | SPeee不動産 赤坂店 | ベテランすまい'
