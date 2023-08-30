@@ -4,21 +4,19 @@
 </section>
 
 <%= form_with model: @assessment_request ,url: assessments_path, method: :post do |form|%>
-    <%= form.hidden_field :office_id, value: @office_id%>
+    <%= form.hidden_field :office_id, value: @assessment_request.office_id %>
     
     <section>
         <h2 class="bg-blue-400 text-white my-5 px-3">あなたの情報</h2>
 
         <div class='grid grid-cols-3 gap-3 w-full xl:w-5/6 mx-auto'>
-        <%= form.label :custom_name_sei, "お名前"%>
+        <%= form.label :user_name, "お名前"%>
         <span class='col-span-2'>
-            <%= form.text_field :custom_name_sei %>
-            <%= form.text_field :custom_name_mei %>
+            <%= form.text_field :user_name %>
         </span>
-        <%= form.label :custom_kana_sei, "フリガナ"%>
+        <%= form.label :user_name_kana, "フリガナ"%>
         <span class='col-span-2'>
-            <%= form.text_field :custom_kana_sei %>
-            <%= form.text_field :custom_kana_mei %>
+            <%= form.text_field :user_name_kana %>
         </span>
         <%= form.label :user_tel, "電話番号"%>
         <%= form.text_field :user_tel, class: 'col-span-2'%>
