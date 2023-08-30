@@ -1,0 +1,16 @@
+ja:
+  activerecord:
+    attributes:
+      assessment_request:
+        city: '市区町村'
+        property_address: '市区町村以下' 
+        property_type: '物件種別'
+        property_exclusive_area: '専有面積'
+        property_land_area: '土地面積'
+        property_building_area: '建物面積'
+        property_room_plan: '間取り'
+        property_constructed_year: '築年数'
+        user_email: 'メールアドレス'
+        user_name: 'お名前'
+        user_name_kana: 'フリガナ'
+        user_tel: '電話番号'
