@@ -16,3 +16,6 @@
 </nav>
 <%= render partial: 'about_review', locals: { review: @review } %>
 <%= render partial: 'about_office', locals: { review: @review } %>
+<div class="text-center mt-10 mb-40">
+    <%= link_to '査定依頼をする', new_assessment_path(office_id: @review.office.id), class: 'text-xl bg-blue-400 text-white px-10 py-5 rounded-lg m-auto'%>
+</div>
