@@ -56,7 +56,7 @@ RSpec.describe AssessmentRequest do
 
       context '物件種別が土地の場合' do
         it do
-          assessment = build(assessment_request, property_type: 3, property_land_area: nil)
+          assessment = build(:assessment_request, property_type: 3, property_land_area: nil)
           expect(assessment).not_to be_valid
 
           assessment.property_exclusive_area = 30
