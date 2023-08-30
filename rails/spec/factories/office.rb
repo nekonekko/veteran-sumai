@@ -4,7 +4,7 @@ FactoryBot.define do
   factory :office do
     name { '赤坂店' }
     company
-    ieul_office_id { 1 }
+    sequence(:ieul_office_id) { |n| n }
     logo_url { 'https://foodslink.jp/syokuzaihyakka/syun/fruit/abricotto/anzu21s.jpg' }
     postal_code { '329-1224' }
     prefecture
