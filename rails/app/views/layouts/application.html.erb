@@ -13,11 +13,16 @@
   </head>
 
   <body>
-    <%= flash[:alert] %>
-    <% flash.each do |message_type, message| %>
-      <%= message %>
+    <% if flash[:alert] %>
+      <div class="flex justify-center items-center">
+        <ul class="text-red-500 list-inside list-disc">
+          <% flash[:alert].each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
     <% end %>
-    <main class="container mx-auto mt-28 px-5">
+    <main class="container mx-auto mt-10 px-5">
       <%= yield %>
     </main>
   </body>

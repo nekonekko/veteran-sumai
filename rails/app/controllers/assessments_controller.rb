@@ -2,25 +2,25 @@
 
 class AssessmentsController < ApplicationController
   def new
-    # if params[:office_id].nil?
-    #   redirect_to root_url
-    #   return
-    # end
+    puts params[:office_id]
+    if params[:office_id].nil?
+      redirect_to root_url
+      return
+    end
 
     @assessment_request = AssessmentRequest.new(office_id: params[:office_id])
   end
 
   def create
-    assessment_request = AssessmentRequest.new(**assessment_request_params, url_param: 'beteran-sumai')
+    puts assessment_request_params
+    assessment_request = AssessmentRequest.new(**assessment_request_params)
     puts params[:office_id]
     if assessment_request.valid?
       assessment_request.save!
       # redirect_to thank_page_path
     else
-      puts 'aaaaaaaaaa'
       flash[:alert] = assessment_request.errors.full_messages
-      puts assessment_request.office_id
-      redirect_to new_assessment_url(assessment_request.office_id)
+      redirect_to new_assessment_url(office_id: assessment_request.office_id)
       # redirect_to action: :create
     end
   end
