@@ -9,7 +9,6 @@
 
 <%= form_with model: @assessment_request ,url: assessments_path, method: :post do |form|%>
     <%= form.hidden_field :office_id, value: @assessment_request.office_id %>
-
     <section>
         <h2 class="bg-blue-400 text-white my-5 px-3">あなたの情報</h2>
 
@@ -44,12 +43,12 @@
 
             <p>物件種別</p>
             <span class='col-span-2'>
-            <%= form.radio_button :property_type, :one %>
-            <%= form.label :property_type, "分譲マンション", {value: :one, style: "display: inline-block;"} %>
-            <%= form.radio_button :property_type, :two %>
-            <%= form.label :property_type, "一戸建て", {value: :two, style: "display: inline-block;"} %>
-            <%= form.radio_button :property_type, :three %>
-            <%= form.label :property_type, "土地", {value: :three, style: "display: inline-block;"} %>
+            <%= form.radio_button :property_type, :"1" %>
+            <%= form.label :property_type, "分譲マンション", {value: :"1", style: "display: inline-block;"} %>
+            <%= form.radio_button :property_type, :"2" %>
+            <%= form.label :property_type, "一戸建て", {value: :"2", style: "display: inline-block;"} %>
+            <%= form.radio_button :property_type, :"3" %>
+            <%= form.label :property_type, "土地", {value: :"3", style: "display: inline-block;"} %>
             </span>
 
             <%= form.label :property_exclusive_area, "専有面積"%>
@@ -88,6 +87,7 @@
     </section>
 
     <div class="text-center mt-10">
+        <%= hidden_field_tag :office_id, @office_id %>
         <%= form.submit '査定依頼をする', class: 'text-xl bg-blue-400 text-white px-10 py-5 rounded-lg m-auto' %>
     </div>
 <% end %>

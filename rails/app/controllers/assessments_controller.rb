@@ -14,15 +14,15 @@ class AssessmentsController < ApplicationController
 
   def create
     Rails.logger.debug assessment_request_params
-    assessment_request = AssessmentRequest.new(**assessment_request_params)
+    assessment_request = AssessmentRequest.new(assessment_request_params)
     Rails.logger.debug params[:office_id]
     if assessment_request.valid?
       assessment_request.save!
-      # redirect_to thank_page_path
+      assessment_request.post_to_ieul!
+      redirect_to assessment_request.success? ? thanks_url : error_url
     else
       flash[:alert] = assessment_request.errors.full_messages
       redirect_to new_assessment_url(office_id: assessment_request.office_id)
-      # redirect_to action: :create
     end
   end
 
@@ -46,4 +46,8 @@ class AssessmentsController < ApplicationController
             :property_constructed_year
           )
   end
+
+  def thanks; end
+
+  def error; end
 end

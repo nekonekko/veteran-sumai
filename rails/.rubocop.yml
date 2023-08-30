@@ -19,9 +19,7 @@ Rails:
 
 Style/HashSyntax:
   Exclude:
-      - spec/**/*
-      - lib/tasks/*
-      - spec/features/*
+      - ./**/*
 
 Style/Documentation:
   Enabled: false
@@ -62,3 +60,7 @@ RSpec/MultipleMemoizedHelpers:
 RSpec/ExampleLength:
   Exclude:
       - spec/features/*
+
+RSpec/LetSetup:
+  Exclude:
+        - spec/features/*
