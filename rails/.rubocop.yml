@@ -47,6 +47,7 @@ Rails/BulkChangeTable:
 RSpec/MultipleExpectations:
   Exclude:
       - spec/features/*
+      - spec/models/*
 
 RSpec/ContextWording:
   Enabled: false
@@ -63,4 +64,5 @@ RSpec/ExampleLength:
 
 RSpec/LetSetup:
   Exclude:
-        - spec/features/*
+      - spec/features/*
+      - spec/models/*

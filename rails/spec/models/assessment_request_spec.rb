@@ -6,23 +6,28 @@ RSpec.describe AssessmentRequest do
   describe '#valid?' do
     context '物件種別に応じて必要なフィールドが全て埋まっている場合' do
       context '分譲マンションの場合' do
-        it '有効である  こと' do
-          assessment = build(:assessment_request, property_type: 1, property_exclusive_area: 30, property_land_area: nil, property_building_area: nil)
+        it '有効である こと' do
+          assessment = build(:assessment_request, property_type: 1, property_exclusive_area: 30,
+                                                  property_land_area: nil, property_building_area: nil)
           expect(assessment).to be_valid
         end
       end
+
       context '一戸建ての場合' do
         it '有効であること' do
-          assessment = build(:assessment_request, property_type: 2, property_exclusive_area: nil, property_land_area: 30, property_building_area: 30)
+          assessment = build(:assessment_request, property_type: 2, property_exclusive_area: nil,
+                                                  property_land_area: 30, property_building_area: 30)
           expect(assessment).to be_valid
         end
       end
+
       context '土地の場合' do
         it '有効であること' do
-          assessment = build(:assessment_request, property_type: 3, property_exclusive_area: nil, property_land_area: 30, property_building_area: nil)
+          assessment = build(:assessment_request, property_type: 3, property_exclusive_area: nil,
+                                                  property_land_area: 30, property_building_area: nil)
           expect(assessment).to be_valid
         end
-      end                               
+      end
     end
 
     context 'いずれかの空欄か空の場合' do
@@ -42,7 +47,8 @@ RSpec.describe AssessmentRequest do
 
       context '物件種別が戸建ての場合' do
         it do
-          assessment = build(:assessment_request, property_type: 2, property_land_area: nil, property_building_area: nil)
+          assessment = build(:assessment_request, property_type: 2, property_land_area: nil,
+                                                  property_building_area: nil)
           expect(assessment).not_to be_valid
 
           assessment.property_land_area = 80
@@ -67,7 +73,6 @@ RSpec.describe AssessmentRequest do
           expect(assessment).not_to be_valid
         end
       end
-
 
       context '部屋のプランが空の場合' do
         it '無効であること' do
