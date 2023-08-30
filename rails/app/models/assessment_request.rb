@@ -21,9 +21,7 @@ class AssessmentRequest < ApplicationRecord
     uri = URI.parse('https://miniul-api.herokuapp.com/affiliate/v2/conversions')
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = true
-    if Rails.env.development?
-      http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-    end
+    http.verify_mode = OpenSSL::SSL::VERIFY_NONE if Rails.env.development?
 
     req = Net::HTTP::Post.new(uri.path)
     req.set_form_data(form_params)
