@@ -9,18 +9,27 @@ class AssessmentsController < ApplicationController
     end
 
     @assessment_request = AssessmentRequest.new(office_id: params[:office_id])
-    @office = Office.find(params[:office_id])
+    # @office = Office.find(params[:office_id])
+    @office = @assessment_request.office
   end
 
   def create
-    assessment_request = AssessmentRequest.new(assessment_request_params)
-    if assessment_request.valid?
-      assessment_request.save!
-      assessment_request.post_to_ieul!
-      redirect_to assessment_request.success? ? thanks_url : error_url
+    puts 'a' * 100
+    @assessment_request = AssessmentRequest.new(assessment_request_params)
+    if @assessment_request.valid?
+      @assessment_request.save!
+      @assessment_request.post_to_ieul!
+      redirect_to @assessment_request.success? ? thanks_url : error_url
     else
-      flash[:alert] = assessment_request.errors.full_messages
-      redirect_to new_assessment_url(office_id: assessment_request.office_id)
+      puts 'b' * 100
+      puts @assessment_request.errors.full_messages
+      flash.now[:alert] = @assessment_request.errors.full_messages
+      #redirect_to new_assessment_url(office_id: @assessment_request.office_id)
+      @office = @assessment_request.office
+      puts @office.name
+      puts @office.company.name
+      
+      render :new
     end
   end
 
