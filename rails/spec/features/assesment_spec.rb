@@ -22,7 +22,7 @@ RSpec.describe 'assessment/new' do
     expect(page).to have_content('電話番号を入力してください')
     expect(page).to have_content('メールアドレスは不正な値です')
     expect(page).to have_content('電話番号は不正な値です')
-    expect(page).to have_current_path(new_assessment_path, ignore_query: true)
+    expect(page).to have_current_path(assessments_path, ignore_query: true)
 
     choose 'マンション'
     click_button '査定依頼をする'

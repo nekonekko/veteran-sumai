@@ -7,7 +7,7 @@
     </span>
 </section>
 
-<%= form_with model: @assessment_request ,url: assessments_path, method: :post do |form|%>
+<%= form_with model: @assessment_request ,url: assessments_path, method: :post , data: { turbo: false } do |form|%>
     <%= form.hidden_field :office_id, value: @assessment_request.office_id %>
     <section>
         <h2 class="bg-blue-400 text-white my-5 px-3">あなたの情報</h2>
@@ -15,16 +15,16 @@
         <div class='grid grid-cols-3 gap-3 w-full xl:w-5/6 mx-auto'>
         <%= form.label :user_name, "お名前"%>
         <span class='col-span-2'>
-            <%= form.text_field :user_name %>
+            <%= form.text_field :user_name, placeholder: "田中 太郎" %>
         </span>
         <%= form.label :user_name_kana, "フリガナ"%>
         <span class='col-span-2'>
-            <%= form.text_field :user_name_kana %>
+            <%= form.text_field :user_name_kana, placeholder: "タナカ タロウ" %>
         </span>
-        <%= form.label :user_tel, "電話番号"%>
-        <%= form.text_field :user_tel, class: 'col-span-2'%>
+        <%= form.label :user_tel, "電話番号（ハイフンなし。10桁 または 11桁）"%>
+        <%= form.text_field :user_tel, placeholder: "09012345678", class: 'col-span-2'%>
         <%= form.label :user_email, "メールアドレス"%>
-        <%= form.text_field :user_email, class: 'col-span-2'%>
+        <%= form.text_field :user_email, placeholder: "test@example.com", class: 'col-span-2'%>
         </div>
     </section>
 
@@ -39,7 +39,7 @@
 
         <div class='grid grid-cols-3 gap-3 xl:w-5/6 mx-auto'>
             <%= form.label :property_address, "市区町村以下"%>
-            <%= form.text_field :property_address, class: 'col-span-2' %>
+            <%= form.text_field :property_address, placeholder: "六本木3-2-1", class: 'col-span-2' %>
 
             <p>物件種別</p>
             <span class='col-span-2'>
@@ -49,14 +49,14 @@
             <% end %>
             </span>
 
-            <%= form.label :property_exclusive_area, "専有面積"%>
-            <%= form.text_field :property_exclusive_area, class: 'col-span-2' %>
+            <%= form.label :property_exclusive_area, "専有面積（平方メートルで入力。単位は不要。）"%>
+            <%= form.text_field :property_exclusive_area, placeholder: "20", class: 'col-span-2' %>
 
-            <%= form.label :property_land_area, "土地面積"%>
-            <%= form.text_field :property_land_area, class: 'col-span-2' %>
+            <%= form.label :property_land_area, "土地面積（平方メートルで入力。単位は不要。）"%>
+            <%= form.text_field :property_land_area, placeholder: "130", class: 'col-span-2' %>
 
-            <%= form.label :property_building_area, "建物面積"%>
-            <%= form.text_field :property_building_area, class: 'col-span-2' %>
+            <%= form.label :property_building_area, "建物面積（平方メートルで入力。単位は不要。）"%>
+            <%= form.text_field :property_building_area, placeholder: "130", class: 'col-span-2' %>
         </div>
 
         <div class='grid grid-cols-3 gap-3 my-3 xl:w-5/6 mx-auto'>
@@ -80,11 +80,11 @@
 
         <div class='grid grid-cols-3 gap-3 xl:w-5/6 mx-auto'>
             <%= form.label :property_constructed_year, "建築年"%>
-            <%= form.text_field :property_constructed_year, class: 'col-span-2' %>
+            <%= form.text_field :property_constructed_year, placeholder: "2000", class: 'col-span-2' %>
         </div>
     </section>
 
-    <div class="text-center mt-10">
+    <div class="text-center mt-10 mb-40">
         <%= hidden_field_tag :office_id, @office_id %>
         <%= form.submit '査定依頼をする', class: 'text-xl bg-blue-400 text-white px-10 py-5 rounded-lg m-auto' %>
     </div>
