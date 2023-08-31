@@ -14,21 +14,21 @@ class AssessmentsController < ApplicationController
   end
 
   def create
-    puts 'a' * 100
+    Rails.logger.debug 'a' * 100
     @assessment_request = AssessmentRequest.new(assessment_request_params)
     if @assessment_request.valid?
       @assessment_request.save!
       @assessment_request.post_to_ieul!
       redirect_to @assessment_request.success? ? thanks_url : error_url
     else
-      puts 'b' * 100
-      puts @assessment_request.errors.full_messages
+      Rails.logger.debug 'b' * 100
+      Rails.logger.debug @assessment_request.errors.full_messages
       flash.now[:alert] = @assessment_request.errors.full_messages
-      #redirect_to new_assessment_url(office_id: @assessment_request.office_id)
+      # redirect_to new_assessment_url(office_id: @assessment_request.office_id)
       @office = @assessment_request.office
-      puts @office.name
-      puts @office.company.name
-      
+      Rails.logger.debug @office.name
+      Rails.logger.debug @office.company.name
+
       render :new
     end
   end

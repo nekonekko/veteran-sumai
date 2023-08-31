@@ -2,7 +2,7 @@
 
 module OfficesHelper
   def company_and_office_name(office)
-    puts office
+    Rails.logger.debug office
     "#{office.company.name} #{office.name}"
   end
 
