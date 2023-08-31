@@ -26,16 +26,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_23_044232) do
     t.bigint "city_id", null: false
     t.string "property_address", null: false
     t.integer "property_type", null: false
-    t.float "property_exclusive_area", null: false
-    t.float "property_land_area", null: false
-    t.float "property_building_area", null: false
+    t.float "property_exclusive_area"
+    t.float "property_land_area"
+    t.float "property_building_area"
     t.integer "property_room_plan", null: false
     t.integer "property_constructed_year", null: false
     t.string "user_email", null: false
     t.string "user_name", null: false
     t.string "user_name_kana", null: false
     t.string "user_tel", null: false
-    t.boolean "success", default: false
+    t.boolean "success", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["city_id"], name: "index_assessment_requests_on_city_id"
