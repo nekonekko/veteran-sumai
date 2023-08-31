@@ -64,11 +64,11 @@
                 <%= form.label :property_exclusive_area, "専有面積（平方メートルで入力。単位は不要。）"%>
                 <%= form.text_field :property_exclusive_area, placeholder: "20", class: 'col-span-2' %>
             </div>
-            <div data-assessments-target='landArea' data-assessments-landArea-class='' class='grid grid-cols-3 gap-3 mb-3 xl:w-5/6 mx-auto hidden'>
+            <div data-assessments-target='landArea' class='grid grid-cols-3 gap-3 mb-3 xl:w-5/6 mx-auto hidden'>
                 <%= form.label :property_land_area, "土地面積（平方メートルで入力。単位は不要。）"%>
                 <%= form.text_field :property_land_area, placeholder: "130", class: 'col-span-2' %>
             </div>
-            <div data-assessments-target='buildingArea' data-assessments-buildingArea-class='' class='grid grid-cols-3 gap-3 xl:w-5/6 mx-auto hidden'>
+            <div data-assessments-target='buildingArea' class='grid grid-cols-3 gap-3 xl:w-5/6 mx-auto hidden'>
                 <%= form.label :property_building_area, "建物面積（平方メートルで入力。単位は不要。）"%>
                 <%= form.text_field :property_building_area, placeholder: "130", class: 'col-span-2' %>
             </div>
