@@ -8,7 +8,6 @@ class AssessmentsController < ApplicationController
     end
 
     @assessment_request = AssessmentRequest.new(office_id: params[:office_id])
-    # @office = Office.find(params[:office_id])
     @office = @assessment_request.office
   end
 
@@ -20,7 +19,6 @@ class AssessmentsController < ApplicationController
       redirect_to @assessment_request.success? ? thanks_url : error_url
     else
       flash.now[:alert] = @assessment_request.errors.full_messages
-      # redirect_to new_assessment_url(office_id: @assessment_request.office_id)
       @office = @assessment_request.office
 
       render :new
