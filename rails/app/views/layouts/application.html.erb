@@ -15,15 +15,6 @@
   <body>
     <%= render partial: 'layouts/header' %>
     <main class="container mx-auto mt-28 px-5">
-      <% if flash[:alert] %>
-        <div class="flex justify-center items-center">
-          <ul class="text-red-500 list-inside list-disc">
-            <% flash[:alert].each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
       <%= yield %>
     </main>
   </body>
