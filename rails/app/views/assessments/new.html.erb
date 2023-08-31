@@ -6,7 +6,15 @@
         <p class="text-center">フォームは全て必須入力です。</p>
     </span>
 </section>
-
+<% if flash[:alert] %>
+<div class="flex justify-center items-center my-5">
+    <ul class="text-red-500 list-inside list-disc">
+    <% flash[:alert].each do |message| %>
+        <li><%= message %></li>
+    <% end %>
+    </ul>
+</div>
+<% end %>
 <%= form_with model: @assessment_request ,url: assessments_path, method: :post , data: { turbo: false } do |form|%>
     <%= form.hidden_field :office_id, value: @assessment_request.office_id %>
     <section>
