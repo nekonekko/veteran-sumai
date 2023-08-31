@@ -37,26 +37,33 @@
                 ), prompt: '市区町村を選択してください。', class: 'col-span-2' %>
         </div>
 
-        <div class='grid grid-cols-3 gap-3 xl:w-5/6 mx-auto'>
-            <%= form.label :property_address, "市区町村以下"%>
-            <%= form.text_field :property_address, placeholder: "六本木3-2-1", class: 'col-span-2' %>
+        <div data-controller='assessments'>
+            <div class='grid grid-cols-3 gap-3 mb-3 xl:w-5/6 mx-auto'>
+                <%= form.label :property_address, "市区町村以下"%>
+                <%= form.text_field :property_address, placeholder: "六本木3-2-1", class: 'col-span-2' %>
+                <p>物件種別</p>
+                <span class='col-span-2'>
+                <% PropertyType.all.each do |property_type| %>
+                    <span data-action='click->assessments#modify' data-assessments-type-param=<%= property_type.name %> >
+                        <%= form.radio_button :property_type, property_type.id %>
+                    </span>
+                    <%= form.label :property_type, property_type.name, value: property_type.id, style: 'display: inline-block;' %>
+                <% end %>
+                </span>
+            </div>
 
-            <p>物件種別</p>
-            <span class='col-span-2'>
-            <% PropertyType.all.each do |property_type| %>
-              <%= form.radio_button :property_type, property_type.id %>
-              <%= form.label :property_type, property_type.name, value: property_type.id, style: 'display: inline-block;' %>
-            <% end %>
-            </span>
-
-            <%= form.label :property_exclusive_area, "専有面積（平方メートルで入力。単位は不要。）"%>
-            <%= form.text_field :property_exclusive_area, placeholder: "20", class: 'col-span-2' %>
-
-            <%= form.label :property_land_area, "土地面積（平方メートルで入力。単位は不要。）"%>
-            <%= form.text_field :property_land_area, placeholder: "130", class: 'col-span-2' %>
-
-            <%= form.label :property_building_area, "建物面積（平方メートルで入力。単位は不要。）"%>
-            <%= form.text_field :property_building_area, placeholder: "130", class: 'col-span-2' %>
+            <div data-assessments-target='exclusiveArea' class='grid grid-cols-3 gap-3 mb-3 xl:w-5/6 mx-auto hidden' >
+                <%= form.label :property_exclusive_area, "専有面積（平方メートルで入力。単位は不要。）"%>
+                <%= form.text_field :property_exclusive_area, placeholder: "20", class: 'col-span-2' %>
+            </div>
+            <div data-assessments-target='landArea' data-assessments-landArea-class='' class='grid grid-cols-3 gap-3 mb-3 xl:w-5/6 mx-auto hidden'>
+                <%= form.label :property_land_area, "土地面積（平方メートルで入力。単位は不要。）"%>
+                <%= form.text_field :property_land_area, placeholder: "130", class: 'col-span-2' %>
+            </div>
+            <div data-assessments-target='buildingArea' data-assessments-buildingArea-class='' class='grid grid-cols-3 gap-3 xl:w-5/6 mx-auto hidden'>
+                <%= form.label :property_building_area, "建物面積（平方メートルで入力。単位は不要。）"%>
+                <%= form.text_field :property_building_area, placeholder: "130", class: 'col-span-2' %>
+            </div>
         </div>
 
         <div class='grid grid-cols-3 gap-3 my-3 xl:w-5/6 mx-auto'>
