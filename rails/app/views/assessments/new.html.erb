@@ -21,8 +21,8 @@
         <span class='col-span-2'>
             <%= form.text_field :user_name_kana, placeholder: "タナカ タロウ" %>
         </span>
-        <%= form.label :user_tel, "電話番号"%>
-        <%= form.text_field :user_tel, placeholder: "09012345678（10桁 または 11桁）", class: 'col-span-2'%>
+        <%= form.label :user_tel, "電話番号（ハイフンなし。10桁 または 11桁）"%>
+        <%= form.text_field :user_tel, placeholder: "09012345678", class: 'col-span-2'%>
         <%= form.label :user_email, "メールアドレス"%>
         <%= form.text_field :user_email, placeholder: "test@example.com", class: 'col-span-2'%>
         </div>
@@ -49,14 +49,14 @@
             <% end %>
             </span>
 
-            <%= form.label :property_exclusive_area, "専有面積"%>
-            <%= form.text_field :property_exclusive_area, placeholder: "20（平方メートルで入力。単位は不要。）", class: 'col-span-2' %>
+            <%= form.label :property_exclusive_area, "専有面積（平方メートルで入力。単位は不要。）"%>
+            <%= form.text_field :property_exclusive_area, placeholder: "20", class: 'col-span-2' %>
 
-            <%= form.label :property_land_area, "土地面積"%>
-            <%= form.text_field :property_land_area, placeholder: "130（平方メートルで入力。単位は不要。）", class: 'col-span-2' %>
+            <%= form.label :property_land_area, "土地面積（平方メートルで入力。単位は不要。）"%>
+            <%= form.text_field :property_land_area, placeholder: "130", class: 'col-span-2' %>
 
-            <%= form.label :property_building_area, "建物面積"%>
-            <%= form.text_field :property_building_area, placeholder: "130（平方メートルで入力。単位は不要。）", class: 'col-span-2' %>
+            <%= form.label :property_building_area, "建物面積（平方メートルで入力。単位は不要。）"%>
+            <%= form.text_field :property_building_area, placeholder: "130", class: 'col-span-2' %>
         </div>
 
         <div class='grid grid-cols-3 gap-3 my-3 xl:w-5/6 mx-auto'>
